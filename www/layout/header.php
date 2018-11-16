@@ -13,7 +13,7 @@
 		</div>
 		<div class="login">
 			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>">
-				<p>Entrar/Cadastrar</p>
+				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
 				<img src="imgs/perfil/0.png">
@@ -57,7 +57,7 @@
 			</ul>
 
 			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>">
-				<p>Entrar/Cadastrar</p>
+				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
 				<div class="imgNome">
@@ -80,6 +80,64 @@
 		}
 	</script>
 </header>
-<div class="loginModal">
-	
+<div class="loginModal hidden" id="loginModal">
+	<div class="modalRoot">
+		<div class="selectType">
+			<ul>
+				<li class="selected" id="loginSele0" onclick="chengeLoginTab(0)">Entrar</li>
+				<li id="loginSele1" onclick="chengeLoginTab(1)">Cadastrar</li>
+			</ul>
+			<a class="closeModal" onclick="openLoginModal()">&times;</a>
+		</div>
+		<div class="entradas" id="login0">
+			<div>
+				<label>Email:</label>
+				<input type="text" name="" placeholder="Digite seu email">
+				<label>Senha:</label>
+				<input type="password" name="" placeholder="Digite sua senha">
+				<a>Esqueceu a senha?</a><br>
+				<div>
+					<input type="submit" name="" value="Entrar">
+				</div>
+			</div>
+		</div>
+		<div class="entradas hidden" id="login1">
+			<div>
+				<label>Nome:</label>
+				<input type="text" name="" placeholder="Digite seu nome">
+				<label>Email:</label>
+				<input type="text" name="" placeholder="Digite seu email">
+				<label>Lattes:</label>
+				<input type="text" name="" placeholder="Coloque o link do seu Lattes">
+				<label>Descrição:</label>
+				<textarea placeholder="Digite um breve descrição sobre sua vida acadêmica"></textarea>
+				<label>Senha:</label>
+				<input type="password" name="" placeholder="Crie uma senha">
+				<div>
+					<input type="submit" name="" value="Cadastrar">
+				</div>
+			</div>			
+		</div>
+		<script type="text/javascript">
+			function chengeLoginTab(i) {
+				document.getElementById('loginSele0').classList.remove('selected');
+				document.getElementById('loginSele1').classList.remove('selected');
+				document.getElementById('loginSele'+i).classList.add('selected');
+
+				document.getElementById('login0').classList.add('hidden');
+				document.getElementById('login1').classList.add('hidden');
+				document.getElementById('login'+i).classList.remove('hidden');
+			}
+		</script>
+	</div>
 </div>
+<script type="text/javascript">
+	function openLoginModal() {
+		document.getElementById('loginModal').classList.toggle('hidden');
+	}
+	window.onclick = function(event) {
+	    if (event.target == document.getElementById("loginModal")) {
+	        openLoginModal();
+	    }
+	}
+</script>

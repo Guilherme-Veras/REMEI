@@ -22,9 +22,4 @@
 		//descer[i].style.marginTop = (novaHeight-70)+"px";
 	}
 
-	console.log(novaHeight);	
-
-
-    el = document.getElementById('searchInput');
-	L.DomEvent.disableClickPropagation(el);
 </script>
