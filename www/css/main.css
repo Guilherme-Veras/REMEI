@@ -4,8 +4,32 @@ body{
 	margin: 0;
 }
 
+section{
+	display: flex;
+	justify-content: center;
+}
+
+.root{
+	width: 900px;
+}
+
+.tilteSec{
+    font-size: 40px;
+    text-align: center;
+}
+
+
+
 
 
 .hidden{
 	display: none !important;
+}
+
+
+@media screen and (max-width: 1000px){
+	.root{
+		width: 90%;
+	}
+
 }

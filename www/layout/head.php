@@ -13,7 +13,7 @@
   <!-- Arquivos de componentes(pedaços do site) -->
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/<?php echo $URL[0]; ?>.css">
-  
+  <link rel="stylesheet" href="css/<?php echo $paginaAtualBasico; ?>.css">
+
 </head>
 <body>
