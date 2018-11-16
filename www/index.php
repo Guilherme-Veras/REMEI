@@ -5,7 +5,8 @@ include("back/pages.php");//Defini as variaveis da pagina
 						  //$paginaVar pagina com final .php
 						  //$paginaAtual nome da pagina com inicial em maiuscula
 include("back/funcsPHP.php");//Chama as funcoes de PHP
-include("back/funcsJS.php");//Chama as funcoes de JavaScript
+include("back/funcsJS.php");//Chama as funcoes de JavaScriptc
+include("back/login.php");
 include("layout/head.php");
 include("layout/header.php");
 include("backPaginas/".$paginaVar);

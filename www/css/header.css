@@ -1,0 +1,201 @@
+header{
+	/*height: 50px;*/
+	border-bottom: 1px #aaa solid;
+}
+
+.webHeader{
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.webHeader > div{
+	display: flex;
+	justify-content: center;
+}
+
+.webHeader .logo{
+	margin: auto 0;
+}
+
+.webHeader .logo img{
+	height: 45px;
+}
+
+.webHeader .nav ul{
+	list-style: none;
+	padding: 0;
+}
+
+.webHeader .nav li{
+	display: inline;
+	cursor: pointer;
+	margin: 0 20px;
+}
+
+.webHeader .login p{
+	cursor: pointer;
+}
+
+.webHeader .login .logado{
+	display: flex;
+	flex-direction: row;
+}
+
+.webHeader .login .logado > img{
+	margin: auto 10px;
+	height: 45px;
+	border-radius: 22.5px;
+}
+
+.webHeader .login .logado p img{
+	height: 20px;
+}
+
+.webHeader .login .logado .dropLogin{
+    position: absolute;
+    margin-top: 70px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.webHeader .login .logado .dropLogin ul{
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.webHeader .login .logado .dropLogin ul li{
+    cursor: pointer;
+}
+
+.webHeader .login .logado .dropLogin ul hr{
+    margin: 5px 0;
+    height: 2px;
+    /*background: linear-gradient(to right, transparent, #b6afaf, transparent);*/
+    border: none;
+}
+
+
+.mobileHeader{
+	display: none;
+	justify-content: space-between;
+}
+
+.mobileHeader .logo{
+	display: flex;
+}
+
+.mobileHeader .logo img{
+	height: 50px;
+	margin: auto 10px;
+}
+
+.mobileHeader .menuOpener p{
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.mobileNav{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+    background: rgba(1,1,1,0.9);
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.mobileNav .mobileNavDentro{
+	width: 300px;
+	height: 100%;
+	border-left: 1px solid;
+	background: #eee;
+}
+
+
+.mobileNav .mobileNavDentro .closeModal{
+	position: fixed;
+	top: 30px;
+	right: 240px;
+	font-size: 30px;
+}
+
+.mobileNav .mobileNavDentro > ul{
+	list-style: none;
+	margin-top: 90px;
+	padding-left: 40px;
+}
+
+.mobileNav .mobileNavDentro  > ul li{
+	margin-bottom: 20px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.mobileNav .mobileNavDentro .deslogado p{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	font-size: 30px;
+	cursor: pointer;
+	padding-left: 40px;
+}
+
+.mobileNav .mobileNavDentro .logado{
+	margin-bottom: 20px;
+	font-size: 25px;
+	cursor: pointer;
+}
+
+.mobileNav .mobileNavDentro .logado .imgNome{
+	margin-top: 50px;
+	padding-left: 40px;
+	display: flex;
+	flex-direction: row;
+}
+
+.mobileNav .mobileNavDentro .logado .imgNome img{
+	height: 50px;
+	border-radius: 25px;
+}
+
+.mobileNav .mobileNavDentro .logado .imgNome p{
+	margin: 12px;
+}
+
+.mobileNav .mobileNavDentro .logado ul{
+	list-style: none;
+	margin-top: 20px;
+	padding-left: 40px;
+}
+
+.mobileNav .mobileNavDentro .logado ul li{
+	margin-bottom: 20px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1200px){
+	.webHeader .nav li{
+		margin: 0 15px;
+	}
+}
+
+@media screen and (max-width: 990px){
+	.mobileHeader{
+		display: flex;
+	}
+
+	.webHeader{
+		display: none;
+	}
+}
