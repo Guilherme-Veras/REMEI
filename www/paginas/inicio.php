@@ -1,14 +1,14 @@
 <section class="buscaSec" id="buscaSec">
 	<div class="root">
-		<form action="busca" method="POST">
+		<form action="busca" method="GET">
 			<h2>REDE DE EDUCAÇÃO E METODOLOGIA DE ENSINO INOVADORAS</h2>
 			<div class="inputsSearch">
-				<input type="text" class="searchInput" id="searchInput" name="" placeholder="Pesquise aqui">
-				<input type="submit" class="searchSubmit" name="">
+				<input type="text" class="searchInput" id="searchInput" name="busca" placeholder="Pesquise aqui">
+				<input type="submit" class="searchSubmit">
 			</div>
 			<div class="inputsFiltros">
 				<label>Filtrar por:</label>
-				<input type="hidden" id="filtrosValue" name="">
+				<input type="hidden" id="filtrosValue" name="filtro" value="0">
 				<ul>
 					<li onclick="changeFiltro(0)" class="filtros selected">Todos</li>
 					<li onclick="changeFiltro(1)" class="filtros" >Área</li>

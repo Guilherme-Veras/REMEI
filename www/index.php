@@ -12,6 +12,6 @@ include("layout/head.php");
 include("layout/header.php");
 include("backPaginas/".$paginaVar);
 include("paginas/".$paginaVar);
-include("backPaginas/A".$paginaVar);
+include("backPaginas/JS".$paginaVar);
 include("layout/footer.php");
 ?>
