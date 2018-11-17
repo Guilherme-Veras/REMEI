@@ -213,6 +213,7 @@ header{
 .modalRoot .selectType .closeModal{
 	padding: 20px 25px;
 	font-size: 30px;
+	cursor: pointer;
 }
 
 .modalRoot .selectType ul{
@@ -316,6 +317,10 @@ header{
     font-weight: bolder;
     animation-duration: alternate 4s;
     margin-top: 20px;
+}
+
+.logo img{
+	cursor: pointer;
 }
 
 @media screen and (max-width: 1200px){

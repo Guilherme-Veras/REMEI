@@ -1,7 +1,7 @@
 <header>
 	<div class="webHeader">
 		<div class="logo">
-			<img src="imgs/logo/logo-remei-black.png">
+			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png">
 		</div>
 		<div class="nav">
 			<ul>
@@ -40,7 +40,7 @@
 	</div>
 	<div class="mobileHeader">
 		<div class="logo">
-			<img src="imgs/logo/logo-remei-black.png">
+			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png">
 		</div>
 		<div class="menuOpener">
 			<p onclick="mobileNavOpener()">&#9776;</p>

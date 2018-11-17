@@ -1,0 +1,30 @@
+.root .filtros{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.root .filtros label {
+    font-size: 20px;
+}
+
+.root .filtros ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.root .filtros ul li{
+    display: inline;
+    color: #000;
+    font-size: 25px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.root .filtros ul li.selected {
+    border: 1.5px solid #ff6422;
+    border-radius: 5px;
+    /* color: #ff6422; */
+}
