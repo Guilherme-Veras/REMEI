@@ -30,9 +30,9 @@ CREATE TABLE users(
 	usu_nome varchar(100) not null,
     usu_email varchar(100) not null,
 	usu_senha varchar(255) not null,
-	usu_descricao mediumtext not null,
-    usu_instituicao varchar(255) not null,
-    usu_lattes varchar(255) not null
+	usu_descricao mediumtext,
+    usu_instituicao varchar(255),
+    usu_lattes varchar(255)
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 

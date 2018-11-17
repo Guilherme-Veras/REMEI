@@ -68,6 +68,7 @@ header{
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    background: #fff;
 }
 
 .webHeader .login .logado .dropLogin ul{
@@ -200,6 +201,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 30;
 }
 
 .modalRoot{
@@ -297,9 +299,19 @@ header{
 .modalRoot input[type="password"]{
 	margin-bottom: 3px;	
 }
-.modalRoot .entradas input[type="text"], .modalRoot textarea{
-    margin-bottom: 20px;
+.modalRoot .entradas label{
+    margin-top: 20px;
+    display: block;
 }
+
+.modalRoot .entradas .erro{
+    color: #ff0000;
+    font-size: 12px;
+	display: block;
+	margin-top: 3px;
+	margin-left: 14px;
+}
+
 
 .modalRoot .entradas > div > div{
 	width: 100%;

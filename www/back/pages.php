@@ -7,8 +7,12 @@ $REQUEST_URI_PASTA = substr(explode('?', $REQUEST_URI)[0], 1);
 $URL = explode('/', $REQUEST_URI_PASTA);
 array_shift($URL);//corrigi url
 array_shift($URL);//corrigi url
-
-
+if ($URL[0] == "api") {
+	$api = true;
+	$apiUrl = $URL[1].".php";
+}else{
+	$api = false;
+}
 
 if(empty($URL[0])){
 	$paginaAtual = "Pagina Inicial";

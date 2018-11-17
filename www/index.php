@@ -5,6 +5,9 @@ include("back/pages.php");//Defini as variaveis da pagina
 						  //$paginaVar pagina com final .php
 						  //$paginaAtual nome da pagina com inicial em maiuscula
 						  //$paginaAtualBasico pagina igual no header
+if ($api) {
+	include ("apis/".$apiUrl);
+}else{
 include("back/funcsPHP.php");//Chama as funcoes de PHP
 include("back/funcsJS.php");//Chama as funcoes de JavaScriptc
 include("back/login.php");
@@ -14,4 +17,5 @@ include("backPaginas/".$paginaVar);
 include("paginas/".$paginaVar);
 include("backPaginas/JS".$paginaVar);
 include("layout/footer.php");
+}
 ?>

@@ -1,10 +1,11 @@
 <?php
 $iphost = "localhost"; //ip/host
-$dbhost = "id7397586_remei"; //databse
-$userhost = "id7397586_remei"; //usuario
-$passwordhost = "a147852369"; //senha
+$dbhost = "remei"; //databse
+$userhost = "root"; //usuario
+$passwordhost = ""; //senha
 $tipohost = "mysql"; //mysql/postgree/
-/*
+
+        
 try {
 	if($tipohost == "mysql"){
   		$conn = new PDO("mysql:host=".$iphost.";dbname=".$dbhost."", $userhost, $passwordhost); 
@@ -20,7 +21,7 @@ try {
 	}else{
 		echo 'ERRO NO BANCO DE DADOS: ' . $e->getMessage();
 	} 
-}*/
+}
 
 session_start();
 ?>

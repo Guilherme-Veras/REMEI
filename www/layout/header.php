@@ -13,12 +13,12 @@
 			</ul>
 		</div>
 		<div class="login">
-			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>">
+			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>" id="deslogado">
 				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
-				<img src="imgs/perfil/0.png">
-				<p onclick="openDropLogin()"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-black.svg"></p>
+				<img src="imgs/perfil/0.png" id="perfilImgWeb">
+				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
 				<div class="dropLogin hidden" id="dropLogin">
 					<ul>
 						<li onclick="redir('perfil')">Ver Perfil</li>
@@ -93,31 +93,86 @@
 		<div class="entradas" id="login0">
 			<div>
 				<label>Email:</label>
-				<input type="text" name="" placeholder="Digite seu email">
+				<input type="text" id="emailLogin" placeholder="Digite seu email">
+				<label class="erro hidden" id="emailErroLogin">Email incorreto</label>
 				<label>Senha:</label>
-				<input type="password" name="" placeholder="Digite sua senha">
+				<input type="password" id="senhaLogin" placeholder="Digite sua senha">
+				<label class="erro hidden" id="senhaErroLogin">Senha incorreta</label>
 				<a>Esqueceu a senha?</a><br>
 				<div>
-					<input type="submit" name="" value="Entrar">
+					<input type="submit" onclick="logar()" value="Entrar">
 				</div>
 			</div>
+			<script type="text/javascript">
+				function logar(){
+					document.getElementById('emailErroLogin').classList.add('hidden');
+					document.getElementById('senhaErroLogin').classList.add('hidden');
+					var xhr = new XMLHttpRequest();
+			        xhr.open('POST', "api/login");
+			        xhr.onload = function() {
+			        	if (this.responseText == 0){//email errado
+							document.getElementById('emailErroLogin').classList.remove('hidden');
+			        	}else if(this.responseText == 1){//senha incorrera
+							document.getElementById('senhaErroLogin').classList.remove('hidden');
+			        	}else if(typeof (this.responseText) === 'string'){//sucess
+			        		openLoginModal();
+			        		document.getElementById('perfilNomeWeb').innerHTML = this.responseText+'<img src="imgs/icons/arrow-drop-down-white.svg">';
+			        		document.getElementById('deslogado').classList.add('hidden');
+			        		document.getElementById('logadoDiv').classList.remove('hidden');
+			        	}else{//qualquer outro erro
+							document.getElementById('emailErroLogin').classList.remove('hidden');
+			        	}
+			        };
+			        // prepare FormData
+			        var formData = new FormData();
+			        formData.append('email', document.getElementById('emailLogin').value);
+			        formData.append('senha', document.getElementById('senhaLogin').value);
+			        xhr.send(formData);
+			    }
+			</script>
 		</div>
 		<div class="entradas hidden" id="login1">
 			<div>
 				<label>Nome:</label>
-				<input type="text" name="" placeholder="Digite seu nome">
+				<input type="text" id="nome" placeholder="Digite seu nome">
 				<label>Email:</label>
-				<input type="text" name="" placeholder="Digite seu email">
-				<label>Lattes:</label>
-				<input type="text" name="" placeholder="Coloque o link do seu Lattes">
-				<label>Descrição:</label>
-				<textarea placeholder="Digite um breve descrição sobre sua vida acadêmica"></textarea>
+				<input type="text" id="email" placeholder="Digite seu email">
+				<label class="erro hidden" id="emailErroCad">Email inválido</label>
 				<label>Senha:</label>
-				<input type="password" name="" placeholder="Crie uma senha">
+				<input type="password" id="senha" placeholder="Crie uma senha">
 				<div>
-					<input type="submit" name="" value="Cadastrar">
+					<input type="submit" onclick="criarConta()" value="Cadastrar">
 				</div>
-			</div>			
+			</div>
+			<script type="text/javascript">
+				function criarConta(){
+					document.getElementById('emailErroCad').classList.add('hidden');
+					if (validateEmail(document.getElementById('email').value)) {
+						var xhr = new XMLHttpRequest();
+				        xhr.open('POST', "api/cadastro");
+				        xhr.onload = function() {
+				        	console.log(this.responseText);
+				        	if (this.responseText == 0) {//email ja usado
+				        	}else if(this.responseText == 1){//sucess
+				        		openLoginModal();
+				        		document.getElementById('perfilNomeWeb').innerHTML = document.getElementById('nome').value+'<img src="imgs/icons/arrow-drop-down-white.svg">';
+				        		document.getElementById('deslogado').classList.add('hidden');
+				        		document.getElementById('logadoDiv').classList.remove('hidden');
+				        	}else{//qualquer outro erro
+
+				        	}
+				        };
+				        // prepare FormData
+				        var formData = new FormData();
+				        formData.append('nome', document.getElementById('nome').value);
+				        formData.append('email', document.getElementById('email').value);
+				        formData.append('senha', document.getElementById('senha').value);
+				        xhr.send(formData);	
+					}else{
+						document.getElementById('emailErroCad').classList.remove('hidden');
+					}
+			    }
+			</script>			
 		</div>
 		<script type="text/javascript">
 			function chengeLoginTab(i) {
