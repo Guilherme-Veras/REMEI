@@ -1,7 +1,8 @@
 <header>
 	<div class="webHeader">
 		<div class="logo">
-			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png">
+			<!--img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png"-->
+			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-semchapeu-branco.png">
 		</div>
 		<div class="nav">
 			<ul>

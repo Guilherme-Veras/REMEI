@@ -19,7 +19,7 @@
 
 	descer = document.getElementsByClassName('descerBack');
 	for (i=0; i<descer.length; i++) {
-		//descer[i].style.marginTop = (novaHeight-70)+"px";
+		descer[i].style.marginTop = (novaHeight-75)+"px";
 	}
 
 </script>

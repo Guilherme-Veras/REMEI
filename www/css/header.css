@@ -34,8 +34,16 @@ header{
 	margin: 0 20px;
 }
 
+.webHeader .nav li:hover{
+	color: #ff6422;
+}
+
 .webHeader .login p{
 	cursor: pointer;
+}
+
+.webHeader .login p:hover{
+	color: #ff6422;
 }
 
 .webHeader .login .logado{
@@ -322,6 +330,16 @@ header{
 .logo img{
 	cursor: pointer;
 }
+
+/*fundo azul*/
+header{
+	background: #0000b4;
+}
+
+.webHeader .nav li, .webHeader .login p{
+    color: #fff;
+}
+/*fundo azul*/
 
 @media screen and (max-width: 1200px){
 	.webHeader .nav li{
