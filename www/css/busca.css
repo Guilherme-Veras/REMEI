@@ -23,6 +23,10 @@
     cursor: pointer;
 }
 
+.root .filtros ul li:hover{
+    color: #ff6422;
+}
+
 .root .filtros ul li.selected {
     border: 1.5px solid #ff6422;
     border-radius: 5px;
