@@ -1,6 +1,6 @@
 <section class="buscaSec" id="buscaSec">
 	<div class="root">
-		<div>
+		<form action="busca" method="POST">
 			<h2>REDE DE EDUCAÇÃO E METODOLOGIA DE ENSINO INOVADORAS</h2>
 			<div class="inputsSearch">
 				<input type="text" class="searchInput" id="searchInput" name="" placeholder="Pesquise aqui">
@@ -17,7 +17,7 @@
 					<li onclick="changeFiltro(4)" class="filtros" >Título</li>
 				</ul>
 			</div>
-		</div>
+		</form>
 	</div>
 </section>
 <section class="descerBack">
