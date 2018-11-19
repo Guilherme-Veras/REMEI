@@ -4,9 +4,16 @@
 			<h2>REDE DE EDUCAÇÃO E METODOLOGIA DE ENSINO INOVADORAS</h2>
 			<div class="inputsSearch">
 				<input type="text" class="searchInput" id="searchInput" name="busca" placeholder="Pesquise aqui">
-				<input type="submit" class="searchSubmit">
+				<select class="filtrosMobile mobile	">
+					<option>Todos</option>
+					<option>Área</option>
+					<option>Autor</option>
+					<option>Metodologia</option>
+					<option>Título</option>
+				</select>
+				<input type="submit" class="searchSubmit" value="Buscar">
 			</div>
-			<div class="inputsFiltros">
+			<div class="inputsFiltros web">
 				<label>Filtrar por:</label>
 				<input type="hidden" id="filtrosValue" name="filtro" value="0">
 				<ul>

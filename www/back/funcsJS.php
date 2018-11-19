@@ -1,4 +1,4 @@
-
+	
 <script type="text/javascript">
 	function redir(page) {
 		window.location = page;
@@ -84,5 +84,8 @@
 	        openAreaModal();
 	    }
 	}
+	window.onresize = function(event) {
+		defineTamanhoInicio();
+	};
 
 </script>

@@ -200,10 +200,20 @@ fieldset {
     cursor: pointer;
 }
 
+.mobile{
+    display: none !important;
+}
 
 @media screen and (max-width: 1000px){
 	.root{
 		width: 90%;
 	}
 
+    .web{
+        display: none !important;
+    }
+
+    .mobile{
+        display: inherit !important;
+    }
 }

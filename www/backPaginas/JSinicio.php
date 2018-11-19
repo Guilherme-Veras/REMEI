@@ -13,13 +13,19 @@
 
 
 	//definir posicao do header
-	telaWidth = document.getElementById('buscaSec').offsetWidth;
-	novaHeight = telaWidth / 1.84990253411306;
-	document.getElementById('buscaSec').style.height = novaHeight+"px"; 
+	function defineTamanhoInicio(){
+		telaWidth = document.getElementById('buscaSec').offsetWidth;
+		novaHeight = telaWidth / 1.84990253411306;
+		document.getElementById('buscaSec').style.height = novaHeight+"px"; 
 
-	descer = document.getElementsByClassName('descerBack');
-	for (i=0; i<descer.length; i++) {
-		descer[i].style.marginTop = (novaHeight-75)+"px";
+		descer = document.getElementsByClassName('descerBack');
+		for (i=0; i<descer.length; i++) {
+			if (telaWidth>1000) {
+				descer[i].style.marginTop = (novaHeight-75)+"px";
+			}else{
+				descer[i].style.marginTop = (novaHeight)+"px";
+			}
+		}
 	}
-
+	defineTamanhoInicio();
 </script>
