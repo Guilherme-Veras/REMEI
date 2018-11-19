@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>REMEI - <?php echo $paginaAtual; ?></title>
 
-  <link rel="icon" href="src/icons/favicon.png">
+  <link rel="icon" href="imgs/logo/favicon.png">
   <!-- Arquivos base >
   <link rel="stylesheet" href="css/normalize.css"-->
   <link rel="stylesheet" href="css/main.css">
