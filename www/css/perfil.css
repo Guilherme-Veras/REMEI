@@ -44,6 +44,11 @@
 	justify-content: space-between;
 }
 
+.root .perfilInfos .perfilText .uniLat a{
+    text-decoration: none;
+    color: #000;
+}
+
 .root .perfilInfos .perfilText hr {
     height: 5px;
     background: #FF6422;

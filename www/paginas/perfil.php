@@ -19,7 +19,7 @@
 				</div>
 				<div class="uniLat">
 					<p id="perfInst"><?php echo $dados['usu_instituicao']; ?></p>
-					<p id="perfLatt"><?php echo $dados['usu_lattes']; ?></p>
+					<p><a target="_black" id="perfLatt" href="<?php echo $dados['usu_lattes']; ?>">Link Lattes</a></p>
 				</div>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 					 	<div class="meta">
 					 		<div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
 					 		<ul class="details">
-					 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="#"> <?php echo $posts[$i]['autor']; ?></a></li>
+					 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $posts[$i]['autorId']; ?>"> <?php echo $posts[$i]['autor']; ?></a></li>
 					 			<li class="date"><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($posts[$i]['data']),"d/m/Y"); ?></li>
 					 			<li class="tags">
 					 				<ul>
@@ -74,12 +74,14 @@
 			<div>
 				<label>Nome:</label>
 				<input type="text" id="editNome" placeholder="Digite seu nome" value="<?php echo $dados['usu_nome']; ?>">
+				<label class="erro hidden" id="nomeErro">Campo obrigatorio</label>
 				<label>Descrição:</label>
 				<textarea id="editDesc" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
 				<label>Instituição:</label>
 				<input type="text" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
 				<label>Lattes:</label>
-				<input type="text" id="editLattes" placeholder="Digite seu Lattes" value="<?php echo $dados['usu_lattes']; ?>">
+				<input type="text" id="editLattes" placeholder="Digite seu Lattes (http://lattes.cnpq.br/0000000000000000)" value="<?php echo $dados['usu_lattes']; ?>">
+				<label class="erro hidden" id="lattesErro">Link inválido</label>
 				<div>
 					<input type="submit" onclick="editar()" value="Salvar">
 				</div>

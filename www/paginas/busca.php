@@ -22,7 +22,7 @@
 					 	<div class="meta">
 					 		<div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
 					 		<ul class="details">
-					 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="#"> <?php echo $posts[$i]['autor']; ?></a></li>
+					 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $posts[$i]['autorId']; ?>"> <?php echo $posts[$i]['autor']; ?></a></li>
 					 			<li class="date"><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($posts[$i]['data']),"d/m/Y"); ?></li>
 					 			<li class="tags">
 					 				<ul>

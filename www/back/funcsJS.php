@@ -11,6 +11,26 @@
     	return false
 	}
 
+	function validateURL(str) {
+	  var pattern = new RegExp('^(https?:\/\/)?'+ // protocol
+	    '((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+ // domain name
+	    '((\d{1,3}\.){3}\d{1,3}))'+ // OR ip (v4) address
+	    '(\:\d+)?(\/[-a-z\d%_.~+]*)*'+ // port and path
+	    '(\?[;&a-z\d%_.~+=-]*)?'+ // query string
+	    '(\#[-a-z\d_]*)?$','i'); // fragment locater
+	  if(!pattern.test(str)) {
+	    return false;
+	  } else {
+	    return true;
+	  }
+	}
+
+	function validateLattes(url){
+		if (url.includes("http://lattes.cnpq.br/")) {
+			return true;
+		}
+		return false;
+	}
 
 	
 	function estrelasHover(t, i) {
@@ -32,7 +52,13 @@
 			}
 		}
 	}
-	function estrelasClick(user, i, post) {
+	function estrelasClick(user, i, post, t) {
+		estrelas = t.parentNode.childNodes;
+		for (j=1; j<estrelas.length-1; j++) {
+			estrelas[j].onmouseover = function() {};
+			estrelas[j].onmouseleave = function() {};
+			estrelas[j].onclick = function() {};
+		}
 		var xhr = new XMLHttpRequest();
         xhr.open('POST', "api/avaliar");
         xhr.onload = function() {
@@ -45,4 +71,18 @@
         formData.append('post', post);
         xhr.send(formData);
 	}
+
+
+	window.onclick = function(event) {
+	    if (event.target == document.getElementById("loginModal")) {
+	        openLoginModal();
+	    }else if (event.target == document.getElementById("editModal")) {
+	        openEditModal();
+	    }else if (event.target == document.getElementById("metoModal")) {
+	        openMetoModal();
+	    }else if (event.target == document.getElementById("areaModal")) {
+	        openAreaModal();
+	    }
+	}
+
 </script>

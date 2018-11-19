@@ -5,7 +5,7 @@ header{
 header *{
 	background: none;
 	border: none;
-	z-index: 10
+	z-index: 10;
 }
 
 .buscaSec{
@@ -104,8 +104,14 @@ header *{
 
 
 
+.root .sobre p{
+	text-align: justify;
+	text-indent: 50px;
+}
 
-
+.root .sobre{
+	margin-bottom: 50px;
+}
 
 
 

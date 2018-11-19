@@ -2,14 +2,14 @@
 	<div class="webHeader">
 		<div class="logo">
 			<!--img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png"-->
-			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-semchapeu-branco.png">
+			<a href="inicio"><img src="imgs/logo/logo-remei-semchapeu-branco.png"></a>
 		</div>
 		<div class="nav">
 			<ul>
-				<li onclick="redir('inicio')">Home</li>
-				<li onclick="redir('objetivos')">Objetivos</li>
-				<li onclick="redir('alta')">Em alta</li>
-				<li onclick="redir('integrantes')">Integrantes</li>
+				<li><a href="inicio">Home</a></li>
+				<li><a href="objetivos">Objetivos</a></li>
+				<li><a href="alta">Em alta</a></li>
+				<li><a href="integrantes">Integrantes</a></li>
 			</ul>
 		</div>
 		<div class="login">
@@ -21,9 +21,9 @@
 				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
 				<div class="dropLogin hidden" id="dropLogin">
 					<ul>
-						<li onclick="redir('perfil?user=<?php echo $user; ?>')">Ver Perfil</li>
+						<li><a href="perfil?user=<?php echo $user; ?>">Ver Perfil</a></li>
 						<hr>
-						<li onclick="redir('novoPost')">Novo Post</li>
+						<li><a href="novoPost">Novo Post</a></li>
 						<hr>
 						<li onclick="redir('?loggout=1')">Sair</li>
 					</ul>
@@ -187,10 +187,5 @@
 <script type="text/javascript">
 	function openLoginModal() {
 		document.getElementById('loginModal').classList.toggle('hidden');
-	}
-	window.onclick = function(event) {
-	    if (event.target == document.getElementById("loginModal")) {
-	        openLoginModal();
-	    }
 	}
 </script>

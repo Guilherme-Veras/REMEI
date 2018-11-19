@@ -35,7 +35,7 @@ function estrelas($rank, $user, $post){
 	if($rank >= 100){ $ranks[4] = 3; }
 	if ($user!=0) {
 		for($a = 0; $a < 5; $a++){
-			echo "<img class='cursor' src='imgs/icons/".$icons[$ranks[$a]]."' onmouseover='estrelasHover(this, ".$a.")' onmouseleave='estrelasHoverOut(this, ".($rank).")' onclick='estrelasClick(".$user.", ".$a.", ".$post.")'>";
+			echo "<img class='cursor' src='imgs/icons/".$icons[$ranks[$a]]."' onmouseover='estrelasHover(this, ".$a.")' onmouseleave='estrelasHoverOut(this, ".($rank).")' onclick='estrelasClick(".$user.", ".$a.", ".$post.", this)'>";
 		}
 	}else{
 		for($a = 0; $a < 5; $a++){
