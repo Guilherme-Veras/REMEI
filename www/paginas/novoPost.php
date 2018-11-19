@@ -1,12 +1,12 @@
 <section>
 	<div class="root">
 		<h2>Novo post</h2>
-		<form method="POST">
+		<form method="POST" id="sumbitForm">
 			<input type="hidden" id="forTitulo"      name="titulo">
 			<input type="hidden" id="forResumo"      name="resumo">
 			<input type="hidden" id="forDescricao"   name="descricao">
 			<input type="hidden" id="forMetodologia" name="metodologia">
-			<input type="hidden" id="forAreas"       name="areas">
+			<input type="hidden" id="forArea"        name="area">
 			<input type="hidden" name="novoPost"     value="1">
 		</form>
 		<div class="entradas">
@@ -23,7 +23,7 @@
 				</div>
 				<div>
 					<label>Areas</label>
-					<input type="text" onkeydown="changeBySeta2(event, this)" onblur="setTimeout(someSelector2, 200);">
+					<input type="text" id="selectorInp2" onkeydown="changeBySeta2(event, this)" onblur="setTimeout(someSelector2, 400);">
 					<label class="selectorRes2 hidden" id="selectorRes2"></label>
 					<input type="hidden" id="inpArea">
 					<div class="selector hidden" id="selector2">

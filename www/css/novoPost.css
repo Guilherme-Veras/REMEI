@@ -102,7 +102,7 @@ input[type="password"]{
     background: #ddd;
 }
 
-.selectorRes1{
+.selectorRes1, .selectorRes2{
     position: absolute;
     margin-top: 56px !important;
     margin-left: 11px;

@@ -109,6 +109,143 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+	selectedHover2 = null;
+	selected2 = false;
+	function setHover2(i) {
+		//console.log(i)
+		apareceSelector2();
+		options = document.getElementsByClassName('selOpt2');
+		for (j=0; j<options.length; j++) {
+			options[j].classList.remove('hover');
+		}
+		options[i].classList.add('hover');
+		selectedHover2 = i;
+	}
+
+	function changeBySeta2(event, t) {
+		options = document.getElementsByClassName('selOpt2');
+		if (event.keyCode == 13) {
+			if (options[selectedHover2].id.replace("sele2","") == 'a') {
+				openAreaModal();
+			}else{
+				document.getElementById('selectorRes2').innerHTML = options[selectedHover2].innerHTML;
+				document.getElementById('selectorRes2').classList.remove('hidden');
+				document.getElementById('inpArea').value = options[selectedHover2].id.replace("sele2","");
+				t.value = options[selectedHover1].innerHTML;
+				selected1 = true;
+			}
+		}else{
+			if (event.keyCode == 40) {//baixo
+				if (selectedHover2 == null) {
+					selectedHover2 = 0;
+				}else if (selectedHover2+1  >= options.length) {
+					selectedHover2 = 0;
+				}else{
+					selectedHover2++;
+				}
+			}else if(event.keyCode == 38){//cima
+				if (selectedHover2 == null) {
+					selectedHover2 = options.length-1;
+				}else if (selectedHover1-1  < 0) {
+					selectedHover2 = options.length-1;
+				}else{
+					selectedHover2--;
+				}
+			}else{
+				if (selected2) {
+					if (event.keyCode == 8) {
+						document.getElementById('selectorRes2').classList.add('hidden');
+						selected2 = false;
+					}else{
+						t.value = options[selectedHover2].innerHTML;
+					}
+					return;
+				}else{
+					selectedHover2 = 0;
+
+					var xhr = new XMLHttpRequest();
+			        xhr.open('POST', "api/areas");
+			        xhr.onload = function() {
+				        json = JSON.parse(this.responseText);
+				        res = "";
+				        i = 0;
+				        //console.log(json)
+				        for (x in json) {
+				        	res += '<div class="selOpt2" onclick="defineSel2(this)" id="sele2'+json[x].are_id+'" onmouseover="setHover2('+i+')">'+json[x].are_nome+'</div>'
+				            //txt += myObj[x].name + "<br>";
+				            i++;
+				        }
+				        res += '<div class="selOpt2" onclick="defineSel2(-1)" id="sele2a" onmouseover="setHover2('+i+')">Adicionar metodologia</div>'
+				        document.getElementById("selector2").innerHTML = res;
+						apareceSelector2();
+			        };
+			        // prepare FormData
+			        var formData = new FormData();
+			        setTimeout(function(){
+			        	formData.append('entrada', t.value); 
+			        	xhr.send(formData);
+			    	}, 200);
+				}
+			}
+			for (j= 0; j<options.length; j++) {
+				options[j].classList.remove('hover');
+			}
+			options[selectedHover2].classList.add('hover');
+		}
+	}
+
+	function someSelector2() {
+		document.getElementById('selector2').classList.add('hidden');
+	}
+	function apareceSelector2() {
+		document.getElementById('selector2').classList.remove('hidden');
+	}
+
+	function defineSel2(t) {
+		if (t == -1) {
+			openAreaModal();
+		}else{
+			document.getElementById('selectorRes2').innerHTML = t.innerHTML;
+			document.getElementById('selectorRes2').classList.remove('hidden');
+			document.getElementById('inpArea').value = t.id.replace("sele2","");
+			document.getElementById('selectorInp2').value = options[selectedHover2].innerHTML;
+			selected2 = true;
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	function openMetoModal() {
 		document.getElementById('metoModal').classList.toggle('hidden');
 	}
@@ -148,5 +285,16 @@
     	document.getElementById('forResumo').value      = document.getElementById('inpResumo').value;
     	document.getElementById('forDescricao').value   = document.getElementById('inpDescricao').value;
     	document.getElementById('forMetodologia').value = document.getElementById('inpMetodologia').value;
+    	document.getElementById('forArea').value        = document.getElementById('inpArea').value;
+
+    	if (document.getElementById('inpTitulo').value.length>0 &&
+    		document.getElementById('inpResumo').value.length>0 &&
+    		document.getElementById('inpDescricao').value.length>0 &&
+    		document.getElementById('inpMetodologia').value.length>0 &&
+    		document.getElementById('inpArea').value.length>0) {
+	    	document.getElementById('sumbitForm').submit();
+		}else{
+			console.log('preencha td');
+		}
     }
 </script>
