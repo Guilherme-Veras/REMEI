@@ -73,14 +73,14 @@
 		<div class="entradas" id="login0">
 			<div>
 				<label>Nome:</label>
-				<input type="text" id="editNome" placeholder="Digite seu nome" value="<?php echo $dados['usu_nome']; ?>">
+				<input type="text" onkeyup="runOnEnter(event, editar)" id="editNome" placeholder="Digite seu nome" value="<?php echo $dados['usu_nome']; ?>">
 				<label class="erro hidden" id="nomeErro">Campo obrigatorio</label>
 				<label>Descrição:</label>
-				<textarea id="editDesc" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
+				<textarea id="editDesc" onkeyup="runOnEnter(event, editar)" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
 				<label>Instituição:</label>
-				<input type="text" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
+				<input type="text" onkeyup="runOnEnter(event, editar)" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
 				<label>Lattes:</label>
-				<input type="text" id="editLattes" placeholder="Digite seu Lattes (http://lattes.cnpq.br/0000000000000000)" value="<?php echo $dados['usu_lattes']; ?>">
+				<input type="text" onkeyup="runOnEnter(event, editar)" id="editLattes" placeholder="Digite seu Lattes (http://lattes.cnpq.br/0000000000000000)" value="<?php echo $dados['usu_lattes']; ?>">
 				<label class="erro hidden" id="lattesErro">Link inválido</label>
 				<div>
 					<input type="submit" onclick="editar()" value="Salvar">
