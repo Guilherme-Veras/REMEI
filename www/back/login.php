@@ -3,6 +3,7 @@
 if (isset($_GET['loggout'])) {
 	unset($_SESSION['user']);
 	unset($_SESSION['userNome']);
+	$_GET['loggout'] = false;
 }
 
 if (isset($_SESSION['user'])) {
@@ -12,6 +13,5 @@ if (isset($_SESSION['user'])) {
 	$user = 0;
 	$userNome = "";
 }
-
 
 ?>

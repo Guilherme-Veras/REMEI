@@ -1,4 +1,4 @@
-<section>
+ onkeyup="runOnEnter(event, editar)"<section>
 	<div class="root">
 		<h2>Novo post</h2>
 		<form method="POST" id="sumbitForm">
@@ -50,9 +50,9 @@
 		<div class="entradas">
 			<div>
 				<label>Nome:</label>
-				<input type="text" id="metoNome" placeholder="Digite o nome da metodologia">
+				<input type="text" onkeyup="runOnEnter(event, criarMeto)" id="metoNome" placeholder="Digite o nome da metodologia">
 				<label>descrição:</label>
-				<textarea id="metoDesc" placeholder="Digite a descrição da metodologia"></textarea>
+				<textarea id="metoDesc" onkeyup="runOnEnter(event, criarMeto)" placeholder="Digite a descrição da metodologia"></textarea>
 				<div>
 					<input type="submit" onclick="criarMeto()" value="Criar">
 				</div>
@@ -70,7 +70,7 @@
 		<div class="entradas">
 			<div>
 				<label>Nome:</label>
-				<input type="text" id="areaNome" placeholder="Digite o nome da area">
+				<input type="text" onkeyup="runOnEnter(event, criarArea)" id="areaNome" placeholder="Digite o nome da area">
 				<div>
 					<input type="submit" onclick="criarArea()" value="Criar">
 				</div>

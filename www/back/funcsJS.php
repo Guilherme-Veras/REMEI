@@ -16,6 +16,14 @@
 		}
 	}
 
+	function logout() {
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', "api/logout");
+        var formData = new FormData();
+        xhr.send(formData);
+        reload();
+	}
+
 	function validateEmail(mail){
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
     		return true

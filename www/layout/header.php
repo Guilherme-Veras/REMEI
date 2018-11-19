@@ -25,7 +25,7 @@
 						<hr>
 						<li><a href="novoPost">Novo Post</a></li>
 						<hr>
-						<li onclick="redir('?loggout=1')">Sair</li>
+						<li onclick="logout()">Sair</li>
 					</ul>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 				<ul>
 					<li onclick="redir('perfil?user=<?php echo $user; ?>')">Ver Perfil</li>
 					<li onclick="redir('novoPost')">Novo Post</li>
-					<li onclick="redir('?loggout=1')">Sair</li>
+					<li onclick="logout()">Sair</li>
 				</ul>
 			</div>
 
