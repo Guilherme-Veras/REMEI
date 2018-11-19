@@ -83,6 +83,8 @@ input[type="password"]{
     width: 427.5px;
     border: 1px solid;
     border-radius: 8px;
+    max-height: 250px;
+    overflow: auto;
 }
 
 .selector div{

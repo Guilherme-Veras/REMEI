@@ -2,9 +2,10 @@
 	selectedHover1 = null;
 	selected1 = false;
 	function setHover1(i) {
+		//console.log(i)
 		apareceSelector1();
 		options = document.getElementsByClassName('selOpt1');
-		for (j= 0; j<options.length; j++) {
+		for (j=0; j<options.length; j++) {
 			options[j].classList.remove('hover');
 		}
 		options[i].classList.add('hover');
@@ -14,10 +15,15 @@
 	function changeBySeta1(event, t) {
 		options = document.getElementsByClassName('selOpt1');
 		if (event.keyCode == 13) {
-			document.getElementById('selectorRes1').innerHTML = options[selectedHover1].innerHTML;
-			document.getElementById('selectorRes1').classList.remove('hidden');
-			t.value = options[selectedHover1].innerHTML;
-			selected1 = true;
+			if (options[selectedHover1].id.replace("sele1","") == 'a') {
+				openMetoModal();
+			}else{
+				document.getElementById('selectorRes1').innerHTML = options[selectedHover1].innerHTML;
+				document.getElementById('selectorRes1').classList.remove('hidden');
+				document.getElementById('inpMetodologia').value = options[selectedHover1].id.replace("sele1","");
+				t.value = options[selectedHover1].innerHTML;
+				selected1 = true;
+			}
 		}else{
 			if (event.keyCode == 40) {//baixo
 				if (selectedHover1 == null) {
@@ -39,6 +45,7 @@
 				if (selected1) {
 					if (event.keyCode == 8) {
 						document.getElementById('selectorRes1').classList.add('hidden');
+						selected1 = false;
 					}else{
 						t.value = options[selectedHover1].innerHTML;
 					}
@@ -54,9 +61,11 @@
 				        i = 0;
 				        //console.log(json)
 				        for (x in json) {
-				        	res += '<div class="selOpt1" onclick="defineSel(this)" id="sele1'+json[x].met_id+'" onmouseover="setHover1('+i+')">'+json[x].met_nome+'</div>'
+				        	res += '<div class="selOpt1" onclick="defineSel1(this)" id="sele1'+json[x].met_id+'" onmouseover="setHover1('+i+')">'+json[x].met_nome+'</div>'
 				            //txt += myObj[x].name + "<br>";
+				            i++;
 				        }
+				        res += '<div class="selOpt1" onclick="defineSel1(-1)" id="sele1a" onmouseover="setHover1('+i+')">Adicionar metodologia</div>'
 				        document.getElementById("selector1").innerHTML = res;
 						apareceSelector1();
 			        };
@@ -82,10 +91,17 @@
 		document.getElementById('selector1').classList.remove('hidden');
 	}
 
-	function defineSel(t) {
-		console.log(t.innerHTML);
+	function defineSel1(t) {
+		if (t == -1) {
+			openMetoModal();
+		}else{
+			document.getElementById('selectorRes1').innerHTML = t.innerHTML;
+			document.getElementById('selectorRes1').classList.remove('hidden');
+			document.getElementById('inpMetodologia').value = t.id.replace("sele1","");
+			document.getElementById('selectorInp1').value = options[selectedHover1].innerHTML;
+			selected1 = true;
+		}
 	}
-
 
 
 

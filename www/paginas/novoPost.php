@@ -7,7 +7,7 @@
 			<input type="hidden" id="forDescricao"   name="descricao">
 			<input type="hidden" id="forMetodologia" name="metodologia">
 			<input type="hidden" id="forAreas"       name="areas">
-			<input type="hidden" name="novoPost" value="1">
+			<input type="hidden" name="novoPost"     value="1">
 		</form>
 		<div class="entradas">
 			<label>Titulo</label>
@@ -15,7 +15,7 @@
 			<div class="dois">
 				<div>
 					<label>Metodologias</label>
-					<input type="text" onkeydown="changeBySeta1(event, this)" onblur="setTimeout(someSelector1, 200);">
+					<input type="text" id="selectorInp1" onkeydown="changeBySeta1(event, this)" onblur="setTimeout(someSelector1, 400);">
 					<label class="selectorRes1 hidden" id="selectorRes1"></label>
 					<input type="hidden" id="inpMetodologia">
 					<div class="selector hidden" id="selector1">
@@ -25,7 +25,7 @@
 					<label>Areas</label>
 					<input type="text" onkeydown="changeBySeta2(event, this)" onblur="setTimeout(someSelector2, 200);">
 					<label class="selectorRes2 hidden" id="selectorRes2"></label>
-					<input type="hidden" id="inpMetodologia">
+					<input type="hidden" id="inpArea">
 					<div class="selector hidden" id="selector2">
 					</div>
 				</div>
