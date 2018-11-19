@@ -90,10 +90,10 @@
 		<div class="entradas" id="login0">
 			<div>
 				<label>Email:</label>
-				<input type="text" id="emailLogin" placeholder="Digite seu email">
+				<input type="text" id="emailLogin" onkeyup="runOnEnter(event, logar)" placeholder="Digite seu email">
 				<label class="erro hidden" id="emailErroLogin">Email incorreto</label>
 				<label>Senha:</label>
-				<input type="password" id="senhaLogin" placeholder="Digite sua senha">
+				<input type="password" id="senhaLogin" onkeyup="runOnEnter(event, logar)" placeholder="Digite sua senha">
 				<label class="erro hidden" id="senhaErroLogin">Senha incorreta</label>
 				<a>Esqueceu a senha?</a><br>
 				<div>
@@ -112,10 +112,11 @@
 			        	}else if(this.responseText == 1){//senha incorrera
 							document.getElementById('senhaErroLogin').classList.remove('hidden');
 			        	}else if(typeof (this.responseText) === 'string'){//sucess
-			        		openLoginModal();
-			        		document.getElementById('perfilNomeWeb').innerHTML = this.responseText+'<img src="imgs/icons/arrow-drop-down-white.svg">';
-			        		document.getElementById('deslogado').classList.add('hidden');
-			        		document.getElementById('logadoDiv').classList.remove('hidden');
+			        		//openLoginModal();
+			        		//document.getElementById('perfilNomeWeb').innerHTML = this.responseText+'<img src="imgs/icons/arrow-drop-down-white.svg">';
+			        		//document.getElementById('deslogado').classList.add('hidden');
+			        		//document.getElementById('logadoDiv').classList.remove('hidden');
+			        		reload();
 			        	}else{//qualquer outro erro
 							document.getElementById('emailErroLogin').classList.remove('hidden');
 			        	}
@@ -131,12 +132,12 @@
 		<div class="entradas hidden" id="login1">
 			<div>
 				<label>Nome:</label>
-				<input type="text" id="nome" placeholder="Digite seu nome">
+				<input type="text" onkeyup="runOnEnter(event, criarConta)" id="nome" placeholder="Digite seu nome">
 				<label>Email:</label>
-				<input type="text" id="email" placeholder="Digite seu email">
+				<input type="text" onkeyup="runOnEnter(event, criarConta)" id="email" placeholder="Digite seu email">
 				<label class="erro hidden" id="emailErroCad">Email inválido</label>
 				<label>Senha:</label>
-				<input type="password" id="senha" placeholder="Crie uma senha">
+				<input type="password" onkeyup="runOnEnter(event, criarConta)" id="senha" placeholder="Crie uma senha">
 				<div>
 					<input type="submit" onclick="criarConta()" value="Cadastrar">
 				</div>

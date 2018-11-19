@@ -3,6 +3,18 @@
 	function redir(page) {
 		window.location = page;
 	}
+	function inicio() {
+		redir('inicio');
+	}
+	function reload() {
+		location.reload();
+	}
+
+	function runOnEnter(event, func) {
+		if (event.keyCode == 13) {
+			func();
+		}
+	}
 
 	function validateEmail(mail){
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
