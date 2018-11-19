@@ -5,15 +5,21 @@
 				<img src="imgs/perfil/0.png">
 			</div>
 			<div class="perfilText">
+				<?php
+					if ($user == $perfUser) {
+				?>
 				<img class="edit" onclick="openEditModal()" src="imgs/icons/edit-black.svg">
+				<?php
+					}
+				?>
 				<div>
-					<h3 class="Nome">Guilherme</h3>
+					<h3 id="perfNome" class="Nome"><?php echo $dados['usu_nome']; ?></h3>
 					<hr>
-					<p class="descricao">Descricap Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+					<p id="perfDesc" class="descricao"><?php echo $dados['usu_descricao']; ?></p>
 				</div>
 				<div class="uniLat">
-					<p>Universidade Tecnologica Federal do Parana</p>
-					<p>www.lattes.com</p>
+					<p id="perfInst"><?php echo $dados['usu_instituicao']; ?></p>
+					<p id="perfLatt"><?php echo $dados['usu_lattes']; ?></p>
 				</div>
 			</div>
 		</div>
@@ -162,15 +168,15 @@
 		<div class="entradas" id="login0">
 			<div>
 				<label>Nome:</label>
-				<input type="text" id="" placeholder="Digite seu email">
+				<input type="text" id="editNome" placeholder="Digite seu nome" value="<?php echo $dados['usu_nome']; ?>">
 				<label>Descrição:</label>
-				<textarea placeholder="Digite um breve descrição da sua vida academica"></textarea>
+				<textarea id="editDesc" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
 				<label>Instituição:</label>
-				<input type="text" id="" placeholder="Digite seu email">
+				<input type="text" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
 				<label>Lattes:</label>
-				<input type="text" id="" placeholder="Digite seu email">
+				<input type="text" id="editLattes" placeholder="Digite seu Lattes" value="<?php echo $dados['usu_lattes']; ?>">
 				<div>
-					<input type="submit" onclick="logar()" value="Salvar">
+					<input type="submit" onclick="editar()" value="Salvar">
 				</div>
 			</div>
 		</div>

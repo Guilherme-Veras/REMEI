@@ -1,28 +1,24 @@
 
 <script type="text/javascript">
-	function logar(){
-		document.getElementById('emailErroLogin').classList.add('hidden');
-		document.getElementById('senhaErroLogin').classList.add('hidden');
+	function editar(){
 		var xhr = new XMLHttpRequest();
-        xhr.open('POST', "api/login");
+        xhr.open('POST', "api/setPerfil");
         xhr.onload = function() {
-        	if (this.responseText == 0){//email errado
-				document.getElementById('emailErroLogin').classList.remove('hidden');
-        	}else if(this.responseText == 1){//senha incorrera
-				document.getElementById('senhaErroLogin').classList.remove('hidden');
-        	}else if(typeof (this.responseText) === 'string'){//sucess
-        		openLoginModal();
-        		document.getElementById('perfilNomeWeb').innerHTML = this.responseText+'<img src="imgs/icons/arrow-drop-down-white.svg">';
-        		document.getElementById('deslogado').classList.add('hidden');
-        		document.getElementById('logadoDiv').classList.remove('hidden');
-        	}else{//qualquer outro erro
-				document.getElementById('emailErroLogin').classList.remove('hidden');
+        	if(this.responseText == 1){		
+		        openEditModal();
+		        document.getElementById('perfNome').innerHTML = document.getElementById('editNome').value;
+		        document.getElementById('perfDesc').innerHTML = document.getElementById('editDesc').value;
+		        document.getElementById('perfInst').innerHTML = document.getElementById('editInst').value;
+		        document.getElementById('perfLatt').innerHTML = document.getElementById('editLattes').value;
         	}
         };
         // prepare FormData
         var formData = new FormData();
-        formData.append('email', document.getElementById('emailLogin').value);
-        formData.append('senha', document.getElementById('senhaLogin').value);
+        formData.append('id'         , <?php echo $user; ?>);
+        formData.append('nome'       , document.getElementById('editNome').value);
+        formData.append('descricao'  , document.getElementById('editDesc').value);
+        formData.append('instituicao', document.getElementById('editInst').value);
+        formData.append('lattes'     , document.getElementById('editLattes').value);
         xhr.send(formData);
     }
 

@@ -1,6 +1,4 @@
 <?php
-//$msg = 1 email ja existe
-//
 
 $email       = $_POST['email'];
 $senha       = sha1($_POST['senha']);
