@@ -7,8 +7,8 @@
 		<div class="nav">
 			<ul>
 				<li><a href="inicio">Home</a></li>
-				<li><a href="objetivos">Objetivos</a></li>
 				<li><a href="alta">Em alta</a></li>
+				<li><a href="projeto">O Projeto</a></li>
 				<li><a href="integrantes">Integrantes</a></li>
 			</ul>
 		</div>
@@ -50,8 +50,8 @@
 			<a class="closeModal" onclick="mobileNavOpener()">&times;</a>
 			<ul>
 				<li onclick="redir('inicio')">Home</li>
-				<li onclick="redir('objetivos')">Objetivos</li>
 				<li onclick="redir('alta')">Em alta</li>
+				<li onclick="redir('projeto')">O projeto</li>
 				<li onclick="redir('integrantes')">Integrantes</li>
 			</ul>
 

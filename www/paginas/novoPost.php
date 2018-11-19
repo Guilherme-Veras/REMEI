@@ -1,4 +1,4 @@
- onkeyup="runOnEnter(event, editar)"<section>
+ <section>
 	<div class="root">
 		<h2>Novo post</h2>
 		<form method="POST" id="sumbitForm">

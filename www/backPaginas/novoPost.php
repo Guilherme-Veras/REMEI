@@ -1,6 +1,6 @@
 <?php
-needLogin();
 
+needLogin();
 
 if (isset($_POST["novoPost"])) {
 	
@@ -20,8 +20,6 @@ if (isset($_POST["novoPost"])) {
 	}else{
 		echo 0;
 	}
-
-
 }
 
 ?>

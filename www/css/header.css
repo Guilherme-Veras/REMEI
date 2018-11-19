@@ -225,10 +225,11 @@ header{
     transition: max-height 1s ease-out;
 }
 
-.modalRoot .selectType{
+.loginModal .modalRoot .selectType{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    flex-direction: row !important;
 }
 
 .modalRoot .selectType .closeModal{

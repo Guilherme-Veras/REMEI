@@ -6,7 +6,7 @@ from posts
 join users on pos_autor=usu_id 
 join areas on pos_area=are_id 
 join metodologias on pos_metodologia=met_id 
-order by pos_visualizacoes limit 5");
+order by pos_visualizacoes DESC limit 5");
 $posts = array();
 for ($i=0; $i < $result->rowCount(); $i++) { 
 	array_push($posts, $result->fetch(PDO::FETCH_ASSOC));
