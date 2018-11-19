@@ -22,6 +22,7 @@ CREATE TABLE posts(
     pos_data date not null,
     pos_autor int not null,
     pos_metodologia int not null,
+    pos_area int not null,
     pos_visualizacoes int default 0
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
@@ -36,11 +37,6 @@ CREATE TABLE users(
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 
-CREATE TABLE posts_areas(
-	posare_id int primary key auto_increment,
-    posare_id_pos int not null,
-    posare_id_are int not null
-)CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE posts_comment(
 	poscom_id int primary key auto_increment,
@@ -53,7 +49,7 @@ CREATE TABLE posts_ranking(
 	posran_id int primary key auto_increment,
     posran_id_pos int not null,
     posran_id_usu int not null,
-    posran_comment int not null
+    posran_ranking int not null
 )CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 

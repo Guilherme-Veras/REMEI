@@ -1,0 +1,71 @@
+.root .postImg{
+	max-height: 350px;
+	overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.root .postImg img{
+	width: 100%;
+}
+
+.root .postTexts h3{
+	font-size: 30px;
+	font-weight: bold;
+	text-indent: 50px;
+}
+
+.root .postTexts p{
+	text-indent: 50px;
+	text-align: justify;
+}
+
+.root .postTexts .descricao{
+	margin-top: 30px;
+}
+
+.root .postInfos{
+    position: absolute;
+    margin-top: -95px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.root .postInfos a{
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.root .ranking{
+	margin-top: 30px;
+}
+
+.root .ranking .rank{
+	position: absolute;
+}
+
+.root .ranking .rank h4{
+	margin: 0;
+	font-size: 20px;
+}
+
+
+.root .ranking .comentarios{
+
+}
+
+.root .ranking .comentarios h3{
+	text-align: center;
+	margin: 0;
+	font-size: 30px;
+}
+
+.root .ranking .comentarios div{
+	margin-top: 20px;
+	margin-bottom: 40px;
+	width: 100%;
+	height: 300px;
+	background: #ddd;
+}

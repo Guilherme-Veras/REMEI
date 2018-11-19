@@ -2,11 +2,12 @@
 	<div class="root">
 		<h2>Novo post</h2>
 		<form method="POST">
-			<input type="hidden" id="forTitulo" name="titulo">
-			<input type="hidden" id="forResumo" name="resumo">
-			<input type="hidden" id="forDescricao" name="descricao">
+			<input type="hidden" id="forTitulo"      name="titulo">
+			<input type="hidden" id="forResumo"      name="resumo">
+			<input type="hidden" id="forDescricao"   name="descricao">
 			<input type="hidden" id="forMetodologia" name="metodologia">
-			<input type="hidden" id="forAreas" name="areas">
+			<input type="hidden" id="forAreas"       name="areas">
+			<input type="hidden" name="novoPost" value="1">
 		</form>
 		<div class="entradas">
 			<label>Titulo</label>
@@ -22,8 +23,11 @@
 				</div>
 				<div>
 					<label>Areas</label>
-					<input type="text" name="">
-					<input type="hidden" id="inpArea" value="0">
+					<input type="text" onkeydown="changeBySeta2(event, this)" onblur="setTimeout(someSelector2, 200);">
+					<label class="selectorRes2 hidden" id="selectorRes2"></label>
+					<input type="hidden" id="inpMetodologia">
+					<div class="selector hidden" id="selector2">
+					</div>
 				</div>
 			</div>
 			<label>Resumo</label>
