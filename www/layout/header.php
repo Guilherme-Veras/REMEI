@@ -21,9 +21,7 @@
 				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
 				<div class="dropLogin hidden" id="dropLogin">
 					<ul>
-						<li onclick="redir('perfil')">Ver Perfil</li>
-						<hr>
-						<li onclick="redir('editPerfil')">Editar Perfil</li>
+						<li onclick="redir('perfil?user=<?php echo $user; ?>')">Ver Perfil</li>
 						<hr>
 						<li onclick="redir('novoPost')">Novo Post</li>
 						<hr>
@@ -66,8 +64,7 @@
 					<p onclick="openDropLogin()"><?php echo $userNome; ?></p>
 				</div>
 				<ul>
-					<li onclick="redir('perfil')">Ver Perfil</li>
-					<li onclick="redir('editPerfil')">Editar Perfil</li>
+					<li onclick="redir('perfil?user=<?php echo $user; ?>')">Ver Perfil</li>
 					<li onclick="redir('novoPost')">Novo Post</li>
 					<li onclick="redir('?loggout=1')">Sair</li>
 				</ul>
