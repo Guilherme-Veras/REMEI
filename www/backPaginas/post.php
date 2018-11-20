@@ -16,4 +16,12 @@ $dados = $result->fetch(PDO::FETCH_ASSOC);
 
 $conn->query("UPDATE posts SET pos_visualizacoes=pos_visualizacoes+1 where pos_id=$post");
 
+
+
+$result = $conn->query("SELECT posran_ranking from posts_ranking where posran_id_usu='$user' and posran_id_pos='$post'");
+if($result->rowCount() > 0){
+	$rankAtual = $result->fetch(PDO::FETCH_ASSOC)['posran_ranking'];
+}else{
+	$rankAtual = 0;
+}
 ?>

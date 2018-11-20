@@ -29,37 +29,7 @@
 			<?php
 
 			for ($i=0; $i<sizeof($posts); $i++) { 
-				?>
-					<div class="blog-card">
-					 	<div class="meta">
-					 		<div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
-					 		<ul class="details">
-					 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $posts[$i]['autorId']; ?>"> <?php echo $posts[$i]['autor']; ?></a></li>
-					 			<li class="date"><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($posts[$i]['data']),"d/m/Y"); ?></li>
-					 			<li class="tags">
-					 				<ul>
-							            <li><img src="imgs/icons/tag-white.svg"> <?php echo $posts[$i]['metodologia']; ?></li>
-							            <li><?php echo $posts[$i]['area']; ?></li>
-							        </ul>
-							    </li>
-							</ul>
-					    </div>
-					    <div class="description">
-					      <h1><?php echo $posts[$i]['titulo']; ?></h1>
-					      <!--h2>Opening a door to the future</h2-->
-						  <p><?php echo $posts[$i]['resumo']; ?></p>
-							<p class="card-rodape">
-								<fieldset class="rating">
-									<?php estrelas($posts[$i]['ranking'], 0, 0) ?>
-								</fieldset>
-
-								<p class="read-more">
-									<a class="read-more-link" href="post?post=<?php echo $posts[$i]['id']; ?>">Ler mais </a>
-								</p>
-							</p>
-					    </div> 
-					</div>
-				<?php
+				getPost($posts[$i]);
 			}
 
 			?>

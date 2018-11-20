@@ -19,7 +19,7 @@
 			<div class="rank">
 				<h4>Avalie esse post</h4>
 				<div>
-					<?php estrelas($dados['ranking'], $user, $post); ?>
+					<?php estrelas($dados['ranking'], $user, $post, $rankAtual); ?>
 				</div>
 			</div>
 			<div class="comentarios">
