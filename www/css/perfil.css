@@ -16,6 +16,15 @@
 .root .perfilInfos .imgPerfil img{
 	width: 100%;
 	border-radius: 50%;
+    cursor: pointer;
+}
+
+.root .perfilInfos .imgPerfil label{
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 55px;
+    color: #fff;
+    cursor: pointer;
 }
 
 .root .perfilInfos .perfilText{

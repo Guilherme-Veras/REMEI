@@ -6,7 +6,7 @@
 			</div>
 			<div class="postInfos">
 	 			<div><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $dados['autorId']; ?>"> <?php echo $dados['autor']; ?></a></div>
-	 			<div><img src="imgs/icons/calendar-white.svg"> <?php echo $dados['data']; ?></div>
+	 			<div><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($dados['data']),"d/m/Y"); ?></div>
 	 			<div><img src="imgs/icons/tag-white.svg"> <?php echo $dados['metodologia']." ".$dados['area']; ?></div>
 			</div>
 			<div class="postTexts">
@@ -23,7 +23,7 @@
 				</div>
 			</div>
 			<div class="comentarios">
-				<h3>Comentarios</h3>
+				<h3>Comentários</h3>
 				<div>
 					
 				</div>

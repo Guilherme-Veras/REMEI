@@ -24,6 +24,19 @@
         reload();
 	}
 
+	function blockIlegalCharacter(t) {
+		ilegal = ['/','\\','\'','"','>','<','[',']','+','=','*'];
+		text = t.value.split("");
+		console.log(text);
+		res = "";
+		for (i=0; i<text.length; i++) {
+			if (!ilegal.includes(text[i])) {
+				res+=text[i];
+			}
+		}
+		t.value=res;
+	}
+
 	function validateEmail(mail){
 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)){
     		return true

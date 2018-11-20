@@ -17,7 +17,7 @@
 				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
-				<img src="imgs/perfil/0.png" id="perfilImgWeb">
+				<img src="imgs/perfil/<?php echo $user; ?>.jpg" id="perfilImgWeb">
 				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
 				<div class="dropLogin hidden" id="dropLogin">
 					<ul>
@@ -60,7 +60,7 @@
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
 				<div class="imgNome">
-					<img src="imgs/perfil/0.png">
+					<img src="imgs/perfil/<?php echo $user; ?>.jpg">
 					<p onclick="openDropLogin()"><?php echo $userNome; ?></p>
 				</div>
 				<ul>
@@ -151,6 +151,7 @@
 				        xhr.onload = function() {
 				        	console.log(this.responseText);
 				        	if (this.responseText == 0) {//email ja usado
+								document.getElementById('emailErroCad').classList.remove('hidden');
 				        	}else if(this.responseText == 1){//sucess
 				        		openLoginModal();
 				        		document.getElementById('perfilNomeWeb').innerHTML = document.getElementById('nome').value+'<img src="imgs/icons/arrow-drop-down-white.svg">';

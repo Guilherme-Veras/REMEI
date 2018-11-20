@@ -10,6 +10,20 @@
 		document.getElementById('filtrosValue').value = ind;
 	}
 
+	function buscar(){
+		texto = document.getElementById('searchInput').value;
+		filtro = document.getElementById('filtrosValue').value;
+
+		if (texto.length>0) {
+			document.getElementById('searchInputFinal').value = texto;
+			document.getElementById('filtroInputFinal').value = filtro;
+			document.getElementById('buscarForm').submit();
+		}else{
+			document.getElementById('searchInput').focus();
+		}
+
+	}
+
 
 
 	//definir posicao do header

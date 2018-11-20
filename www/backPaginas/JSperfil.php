@@ -1,10 +1,9 @@
-
 <script type="text/javascript">
 	function editar(){
         document.getElementById('nomeErro').classList.add('hidden');
         document.getElementById('lattesErro').classList.add('hidden');
         if (document.getElementById('editNome').value.length>0) {
-            if (validateLattes(document.getElementById('editLattes').value)) {
+            if (validateLattes(document.getElementById('editLattes').value) || document.getElementById('editLattes').value.length==0) {
         		var xhr = new XMLHttpRequest();
                 xhr.open('POST', "api/setPerfil");
                 xhr.onload = function() {
@@ -13,7 +12,12 @@
         		        document.getElementById('perfNome').innerHTML = document.getElementById('editNome').value;
         		        document.getElementById('perfDesc').innerHTML = document.getElementById('editDesc').value;
         		        document.getElementById('perfInst').innerHTML = document.getElementById('editInst').value;
-        		        document.getElementById('perfLatt').href      = document.getElementById('editLattes').value;
+                        if (document.getElementById('editLattes').value.length>0) {
+            		        document.getElementById('perfLatt').href = document.getElementById('editLattes').value;
+                            document.getElementById('perfLatt').innerHTML = "Link Lattes";
+                        }else{
+                            document.getElementById('perfLatt').innerHTML = "";                            
+                        }
                 	}
                 };
                 // prepare FormData
@@ -35,4 +39,30 @@
 	function openEditModal() {
 		document.getElementById('editModal').classList.toggle('hidden');
 	}
+
+
+    function openImg() {
+        document.getElementById('imgUpload').click();
+    }
+    function setImg(event, id) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById('imgPerf').src = reader.result;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "api/setImgPerfil");
+            xhr.onload = function() {  
+                console.log(this.responseText);
+            };
+            // prepare FormData
+            var formData = new FormData();
+            formData.append('id', id);
+            formData.append('file', event.target.files[0]);
+            //xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+            xhr.send(formData);
+        }
+        reader.readAsDataURL(event.target.files[0]);  
+
+
+    }
 </script>

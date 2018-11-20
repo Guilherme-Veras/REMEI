@@ -10,8 +10,8 @@
 			<input type="hidden" name="novoPost"     value="1">
 		</form>
 		<div class="entradas">
-			<label>Titulo</label>
-			<input type="text" id="inpTitulo">
+			<label>Título</label>
+			<input type="text" maxlength="50" id="inpTitulo">
 			<div class="dois">
 				<div>
 					<label>Metodologias</label>
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 				<div>
-					<label>Areas</label>
+					<label>Áreas</label>
 					<input type="text" id="selectorInp2" onkeydown="changeBySeta2(event, this)" onblur="setTimeout(someSelector2, 400);">
 					<label class="selectorRes2 hidden" id="selectorRes2"></label>
 					<input type="hidden" id="inpArea">
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<label>Resumo</label>
-			<textarea id="inpResumo"></textarea>
+			<textarea maxlength="500" id="inpResumo"></textarea>
 			<label>Texto</label>
 			<textarea id="inpDescricao"></textarea>
 			<div>
