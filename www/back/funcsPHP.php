@@ -18,6 +18,11 @@ function needLogin(){
 	}
 }
 
+function ajustaNome($nome){
+	$nomes = explode(" ", $nome);
+	return $nomes[sizeof($nomes)-1].", ".$nomes[0];
+}
+
 function estrelas($rank, $user, $post, $ranked=0){
 	$rank*=20;
 	$ranked*=20;
@@ -85,7 +90,7 @@ function getPost($dados){
 		 	<div class="meta">
 		 		<div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
 		 		<ul class="details">
-		 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user='.$dados["autorId"].'"> '.$dados["autor"].'</a></li>
+		 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user='.$dados["autorId"].'"> '.ajustaNome($dados["autor"]).'</a></li>
 		 			<li class="date"><img src="imgs/icons/calendar-white.svg"> '.date_format(date_create($dados["data"]),"d/m/Y").'</li>
 		 			<li class="tags">
 		 				<ul>

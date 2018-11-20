@@ -47,6 +47,7 @@
 				<label>Nome:</label>
 				<input type="text" maxlength="30" onkeyup="blockIlegalCharacter(this); runOnEnter(event, editar)" id="editNome" placeholder="Digite seu nome" value="<?php echo $dados['usu_nome']; ?>">
 				<label class="erro hidden" id="nomeErro">Campo obrigatorio</label>
+				<label class="erro hidden" id="nomeErro2">Informe o nome completo</label>
 				<label>Descrição:</label>
 				<textarea id="editDesc" maxlength="300" onkeyup="blockIlegalCharacter(this); runOnEnter(event, editar)" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
 				<label>Instituição:</label>

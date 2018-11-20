@@ -18,7 +18,7 @@
 			</div>
 			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
 				<img src="imgs/perfil/<?php echo $user; ?>.jpg" id="perfilImgWeb">
-				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo $userNome; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
+				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo explode(" ",$userNome)[0]; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
 				<div class="dropLogin hidden" id="dropLogin">
 					<ul>
 						<li><a href="perfil?user=<?php echo $user; ?>">Ver Perfil</a></li>
