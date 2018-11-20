@@ -16,6 +16,10 @@ if($result->rowCount() > 0){
 		$_SESSION['user'] = $id;
 		$_SESSION['userNome'] = $nome;
 		if (!copy("imgs/perfil/0.jpg", "imgs/perfil/".$id.".jpg")) {
+<<<<<<< HEAD
+=======
+		    echo -1;
+>>>>>>> 6a506c4c49916f3aaeb37b170eb0d2265060e111
 		}
 	}else{
 		echo -1;
