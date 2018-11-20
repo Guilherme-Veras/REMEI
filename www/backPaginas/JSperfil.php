@@ -52,19 +52,27 @@
     function setImg(event, id) {
         var reader = new FileReader();
         reader.onload = function(){
-            document.getElementById('imgPerf').src = reader.result;
+            img = new Image;
+            img.onload = function() {
+                if (Math.abs(img.width-img.height)<10 && img.width<1000 && img.height<1000) {
 
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', "api/setImgPerfil");
-            xhr.onload = function() {  
-                console.log(this.responseText);
+                    document.getElementById('imgPerf').src = reader.result;
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', "api/setImgPerfil");
+                    xhr.onload = function() {  
+                        console.log(this.responseText);
+                    };
+                    // prepare FormData
+                    var formData = new FormData();
+                    formData.append('id', id);
+                    formData.append('file', event.target.files[0]);
+                    xhr.send(formData);
+                }else{
+                    alert("Imagem de proporção ou tamanho inválido");
+                }
             };
-            // prepare FormData
-            var formData = new FormData();
-            formData.append('id', id);
-            formData.append('file', event.target.files[0]);
-            //xhr.setRequestHeader('Content-Type', 'multipart/form-data');
-            xhr.send(formData);
+            img.src = reader.result;
         }
         reader.readAsDataURL(event.target.files[0]);  
 
