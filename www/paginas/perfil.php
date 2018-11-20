@@ -2,7 +2,9 @@
 	<div class="root">
 		<div class="perfilInfos">
 			<div class="imgPerfil">
-				<img src="imgs/perfil/0.png">
+				<img id="imgPerf" src="imgs/perfil/<?php echo $user; ?>.jpg" onclick="openImg()">
+				<label onclick="openImg()">Trocar foto</label>
+				<input type="file" class="hidden" id="imgUpload" onchange="setImg(event, <?php echo $user; ?>)">
 			</div>
 			<div class="perfilText">
 				<?php

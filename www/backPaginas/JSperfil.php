@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 	function editar(){
         document.getElementById('nomeErro').classList.add('hidden');
@@ -35,4 +34,30 @@
 	function openEditModal() {
 		document.getElementById('editModal').classList.toggle('hidden');
 	}
+
+
+    function openImg() {
+        document.getElementById('imgUpload').click();
+    }
+    function setImg(event, id) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById('imgPerf').src = reader.result;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', "api/setImgPerfil");
+            xhr.onload = function() {  
+                console.log(this.responseText);
+            };
+            // prepare FormData
+            var formData = new FormData();
+            formData.append('id', id);
+            formData.append('file', event.target.files[0]);
+            //xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+            xhr.send(formData);
+        }
+        reader.readAsDataURL(event.target.files[0]);  
+
+
+    }
 </script>
