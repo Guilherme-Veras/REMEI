@@ -55,7 +55,6 @@
             img = new Image;
             img.onload = function() {
                 if (Math.abs(img.width-img.height)<10 && img.width<1000 && img.height<1000) {
-
                     document.getElementById('imgPerf').src = reader.result;
 
                     var xhr = new XMLHttpRequest();
