@@ -132,7 +132,8 @@
 		<div class="entradas hidden" id="login1">
 			<div>
 				<label>Nome:</label>
-				<input type="text" onkeyup="runOnEnter(event, criarConta)" id="nome" placeholder="Digite seu nome">
+				<input type="text" onkeyup="blockIlegalCharacter(this); runOnEnter(event, criarConta)" id="nome" placeholder="Digite seu nome">
+				<label class="erro hidden" id="nomeErro2">Informe o nome completo</label>
 				<label>Email:</label>
 				<input type="text" onkeyup="runOnEnter(event, criarConta)" id="email" placeholder="Digite seu email">
 				<label class="erro hidden" id="emailErroCad">Email inválido</label>
@@ -144,31 +145,36 @@
 			</div>
 			<script type="text/javascript">
 				function criarConta(){
+					document.getElementById('nomeErro2').classList.add('hidden');
 					document.getElementById('emailErroCad').classList.add('hidden');
-					if (validateEmail(document.getElementById('email').value)) {
-						var xhr = new XMLHttpRequest();
-				        xhr.open('POST', "api/cadastro");
-				        xhr.onload = function() {
-				        	console.log(this.responseText);
-				        	if (this.responseText == 0) {//email ja usado
-								document.getElementById('emailErroCad').classList.remove('hidden');
-				        	}else if(this.responseText == 1){//sucess
-				        		openLoginModal();
-				        		document.getElementById('perfilNomeWeb').innerHTML = document.getElementById('nome').value+'<img src="imgs/icons/arrow-drop-down-white.svg">';
-				        		document.getElementById('deslogado').classList.add('hidden');
-				        		document.getElementById('logadoDiv').classList.remove('hidden');
-				        	}else{//qualquer outro erro
+					if (document.getElementById('nome').value.split(" ").length>1) {
+						if (validateEmail(document.getElementById('email').value)) {
+							var xhr = new XMLHttpRequest();
+					        xhr.open('POST', "api/cadastro");
+					        xhr.onload = function() {
+					        	console.log(this.responseText);
+					        	if (this.responseText == 0) {//email ja usado
+									document.getElementById('emailErroCad').classList.remove('hidden');
+					        	}else if(this.responseText == 1){//sucess
+					        		openLoginModal();
+					        		document.getElementById('perfilNomeWeb').innerHTML = document.getElementById('nome').value+'<img src="imgs/icons/arrow-drop-down-white.svg">';
+					        		document.getElementById('deslogado').classList.add('hidden');
+					        		document.getElementById('logadoDiv').classList.remove('hidden');
+					        	}else{//qualquer outro erro
 
-				        	}
-				        };
-				        // prepare FormData
-				        var formData = new FormData();
-				        formData.append('nome', document.getElementById('nome').value);
-				        formData.append('email', document.getElementById('email').value);
-				        formData.append('senha', document.getElementById('senha').value);
-				        xhr.send(formData);	
+					        	}
+					        };
+					        // prepare FormData
+					        var formData = new FormData();
+					        formData.append('nome', document.getElementById('nome').value);
+					        formData.append('email', document.getElementById('email').value);
+					        formData.append('senha', document.getElementById('senha').value);
+					        xhr.send(formData);	
+						}else{
+							document.getElementById('emailErroCad').classList.remove('hidden');
+						}
 					}else{
-						document.getElementById('emailErroCad').classList.remove('hidden');
+                		document.getElementById('nomeErro2').classList.remove('hidden');
 					}
 			    }
 			</script>			
