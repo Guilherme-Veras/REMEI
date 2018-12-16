@@ -196,4 +196,14 @@
 	function openLoginModal() {
 		document.getElementById('loginModal').classList.toggle('hidden');
 	}
+	window.onscroll = function() {
+		if (document.getElementsByTagName('BODY')[0].scrollTop > 0) {
+			document.getElementsByTagName('HEADER')[0].classList.add("fundo");
+		}else{
+			document.getElementsByTagName('HEADER')[0].classList.remove("fundo");
+		}
+
+	};
+
+
 </script>

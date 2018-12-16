@@ -34,11 +34,11 @@
 
 		descer = document.getElementsByClassName('descerBack');
 		for (i=0; i<descer.length; i++) {
-			if (telaWidth>1000) {
-				descer[i].style.marginTop = (novaHeight-75)+"px";
-			}else{
+			//if (telaWidth>1000) {
+			//	descer[i].style.marginTop = (novaHeight-75)+"px";
+			//}else{
 				descer[i].style.marginTop = (novaHeight)+"px";
-			}
+			//}
 		}
 	}
 	defineTamanhoInicio();

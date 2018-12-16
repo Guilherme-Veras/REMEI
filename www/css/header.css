@@ -1,6 +1,11 @@
 header{
-	/*height: 50px;*/
-	border-bottom: 1px #aaa solid;
+	/*border-bottom: 1px #aaa solid;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*height: 70px;*/
+    width: 100%;
+    z-index: 10;
 }
 
 .webHeader{
@@ -356,22 +361,28 @@ header{
 }
 
 /*fundo azul*/
-header{
-	background: #0000b4;
-}
-
 .webHeader .nav li, .webHeader .login p{
     color: #fff;
 }
 /*fundo azul*/
 
+
+header.fundo{
+    background: linear-gradient(to bottom, #000, #200035);
+}
+
 @media screen and (max-width: 1200px){
+
 	.webHeader .nav li{
 		margin: 0 15px;
 	}
 }
 
 @media screen and (max-width: 990px){
+	header{
+		background: #fff !important;
+	}
+
 	.mobileHeader{
 		display: flex;
 	}
