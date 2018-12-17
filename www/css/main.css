@@ -7,10 +7,12 @@ body{
 section{
 	display: flex;
 	justify-content: center;
+    flex-direction: column;
 }
 
 .root{
-	width: 900px;
+	width: 1200px;
+    margin: auto;
 }
 
 .tilteSec{
@@ -18,6 +20,9 @@ section{
     text-align: center;
 }
 
+.negrito{
+    font-weight: bold;
+}
 
 
 

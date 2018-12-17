@@ -1,0 +1,202 @@
+header *{
+	background: none;
+	border: none;
+	z-index: 10;
+}
+
+.root{
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.buscaSec{
+	position: absolute;
+	top: -5px;
+	width: 100%;
+	background: url('../imgs/background/home2.png') center no-repeat;
+	/*background-size: 100%;*/
+	z-index: 1;
+    height: 520px;
+    background-position: top;
+}
+
+.buscaSec .root{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.buscaSec .root h2{
+	color: #fff;
+	font-size: 30px;
+}
+
+
+.buscaSec .root .inputsSearch{
+    display: grid;
+    grid-template-columns: 80% 17%;	
+    grid-column-gap: 3%
+}
+
+.buscaSec .root .inputsSearch .searchSubmit{
+    height: 48px;
+    background: #e6e6e6;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    color: #FF6422;
+    box-shadow: 1px 1px 2px #888888;
+    font-weight: bolder;
+    animation-duration: alternate 4s;	
+}
+
+.buscaSec .root .inputsSearch .searchInput{
+    width: 100%;
+    height: 46px;
+    background: #e6e6e6;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    padding-left: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #1f1d22;
+    box-shadow: 1px 1px 2px #888888;
+}
+
+.buscaSec .root .inputsFiltros{
+	margin-top: 10px;
+	display: flex;
+}
+
+.buscaSec .root .inputsFiltros label{
+	font-size: 20px;
+	color: #fff;
+}
+
+.buscaSec .root .inputsFiltros ul{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-left: 20px;
+}
+
+.buscaSec .root .inputsFiltros ul li{
+	display: inline;
+	color: #fff;
+	font-size: 25px;
+	margin-right: 20px;
+	padding: 5px 8px;
+	cursor: pointer;
+}
+
+.buscaSec .root .inputsFiltros ul li:hover{
+	color: #ff6422;
+}
+
+.buscaSec .root .inputsFiltros ul li.selected{
+	border: 1.5px solid #ff6422;
+	border-radius: 5px;
+	/*color: #ff6422;*/
+}
+
+.buscaSec .root .filtrosMobile{
+    position: absolute;
+    right: 25%;
+    margin-top: 9px;
+    background: #e6e6e6;
+    width: 110px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.descerBack{
+	margin-top: 300px;
+	background: #e0e0e0;
+}
+
+.descerBack .root{
+	padding: 20px;
+	width: 1160px;
+	background: #fff;
+    border-radius: 15px;
+	z-index: 15;
+}
+
+.descerBack .root h3{
+	margin-top: 15px;
+}
+
+.root .sobre p{
+    color: #636363;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+
+.root .sobre p span{
+    color: black;
+}
+
+.root .sobre{
+	margin-bottom: 50px;
+}
+
+
+.fotos{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.fotos > div{
+	margin: 30px;
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.fotos > div > img{
+	width: 100%;
+}
+.fotos > div > img:hover{
+	filter: grayscale(100%);
+}
+
+.infos h3{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.separador {
+    height: 4px;
+    border-radius: 50%;
+    border: none;
+    height: 3px;
+    /* border-width: 0; */
+    background: linear-gradient(to right, transparent, #b6afaf, transparent);
+}
+
+.infos p {
+    text-align: justify;
+    text-indent: 50px;
+    font-size: 25px;
+    padding: 0px 10px 0px 20px;
+}
+
+
+@media screen and (max-width: 1000px){
+	.buscaSec{
+		top: 0;
+	}
+}
+
