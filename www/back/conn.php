@@ -1,8 +1,8 @@
 <?php
 $iphost = "localhost"; //ip/host
 $dbhost = "remei"; //databse
-$userhost = "root"; //usuario
-$passwordhost = ""; //senha
+$userhost = "guilherme"; //usuario
+$passwordhost = "Gui.veras20"; //senha
 $tipohost = "mysql"; //mysql/postgree/
 
         
