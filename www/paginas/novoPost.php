@@ -1,3 +1,29 @@
+<section class="buscaSec" id="buscaSec">
+	<div class="root">
+		<div class="infos">
+			<p><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $user; ?>"> <?php echo $userNome; ?></a></p>
+			<p><img src="imgs/icons/calendar-white.svg"> <?php echo date("d/m/Y"); ?></p>
+			<p><img src="imgs/icons/tag-white.svg"> Clique para selecionar uma metodologia e uma area</p>
+		</div>
+	</div>
+</section>
+<section class="descerBack">
+	<div class="root">
+		<h3 class="tilteSec">Clique para alterar o titulo</h3>
+		<div class="sobre">			
+			<p>Clique para alterar o resumo</p>
+			<textarea></textarea>
+			<p>Clique para alterar o texto</p>
+		</div>
+	</div>
+</section>
+
+
+
+
+<?php 
+/*
+
  <section>
 	<div class="root">
 		<h2>Novo post</h2>
@@ -77,4 +103,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>*/?>

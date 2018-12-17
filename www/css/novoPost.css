@@ -1,4 +1,71 @@
+header{
+    background: none;
+}
+header *{
+    background: none;
+    border: none;
+    z-index: 10;
+}
 
+.buscaSec{
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    background: url('../imgs/background/home2.png') center no-repeat;
+    /*background-size: 100%;*/
+    z-index: 1;
+    height: 520px;
+    background-position: top;
+}
+
+.descerBack{
+    margin-top: 300px;
+    background: #e0e0e0;
+}
+
+.descerBack .root{
+    padding: 20px;
+    width: 1160px;
+    background: #fff;
+    border-radius: 15px;
+    z-index: 15;
+}
+
+.descerBack .root h3{
+    margin-top: 15px;
+}
+
+.root .sobre p{
+    color: #636363;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+
+
+.root .infos{
+    display: flex;
+    margin-top: 50px;   
+}
+
+.root .infos img{
+    height: 17px;
+    width: 17px;
+    margin-left: 10px;
+}
+
+.root .infos a, .root .infos p{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+
+
+
+/*
 .entradas{
     display: flex;
     justify-content: center;
@@ -131,7 +198,7 @@ input[type="password"]{
 
 .modal .modalRoot{
     width: 30%;
-    /*height: 75%;*/
+    /*height: 75%;*//*
     background: #fff;
     border-radius: 10px;
     padding-bottom: 20px;
@@ -215,4 +282,4 @@ input[type="password"]{
     font-weight: bolder;
     animation-duration: alternate 4s;
     margin-top: 20px;
-}
+}*/
