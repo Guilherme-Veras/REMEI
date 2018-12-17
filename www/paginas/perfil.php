@@ -1,3 +1,43 @@
+<section class="buscaSec" id="buscaSec">
+	<div class="root">
+		<div class="imgPerfil">
+			<img id="imgPerf" src="imgs/perfil/<?php echo $user; ?>.jpg" onclick="openImg()">
+			<input type="file" class="hidden" id="imgUpload" onchange="setImg(event, <?php echo $user; ?>)">
+		</div>
+	</div>
+</section>
+
+<section class="descerBack">
+	<div class="root">
+		<h3 class="tilteSec"><?php echo $dados['usu_nome']; ?></h3>
+		<div class="sobre">			
+			<p><span class="negrito">Email: </span><?php echo $dados['usu_email']; ?></p>
+			<p><span class="negrito">Descrição: </span><?php echo $dados['usu_descricao']; ?></p>
+			<p><span class="negrito">Lattes: </span>
+				<a href="<?php echo $dados['usu_lattes']; ?>" target="_blank"><img src="imgs/icons/lattes.png"><?php echo $dados['usu_lattes']; ?></a>
+			</p>
+
+		</div>
+	</div>
+
+	<div class="root posts">
+		<h3 class="tilteSec">Posts de <?php echo $dados['usu_nome']; ?></h3>
+		<div>
+			<?php
+			for ($i=0; $i<sizeof($posts); $i++) { 
+				getPost($posts[$i]);
+			}
+			?>
+		</div>
+	</div>
+</section>
+
+
+
+<?php
+/*
+
+
 <section>
 	<div class="root">
 		<div class="perfilInfos">
@@ -62,3 +102,16 @@
 		</div>
 	</div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>*/?>

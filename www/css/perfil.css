@@ -1,3 +1,98 @@
+header{
+    background: none;
+}
+header *{
+    background: none;
+    border: none;
+    z-index: 10;
+}
+
+.root .imgPerfil{
+    display: flex;
+    justify-content: center;
+}
+
+.root .imgPerfil img{
+    margin-top: -140px;
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+}
+
+
+
+.buscaSec{
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    background: url('../imgs/background/home2.png') center no-repeat;
+    /*background-size: 100%;*/
+    z-index: 1;
+    height: 520px;
+    background-position: top;
+}
+
+.descerBack{
+    margin-top: 300px;
+    background: #e0e0e0;
+}
+
+.descerBack .root{
+    padding: 20px;
+    width: 1160px;
+    background: #fff;
+    border-radius: 15px;
+    z-index: 15;
+}
+
+.descerBack .root h3{
+    margin-top: 15px;
+}
+
+.root .sobre p{
+    color: #636363;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 5px;
+    line-height: 30px;
+}
+
+.root .sobre p span{
+    color: black;
+}
+
+.root .sobre p a img{
+    width: 15px;
+    height: 15px;
+}
+
+.root .sobre{
+    margin-bottom: 50px;
+}
+
+.posts{
+    margin-top: 30px;
+}
+
+.posts > div{
+    padding: 0 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 .root .perfilInfos{
 	display: grid;
 	grid-template-columns: 35% 65%;
@@ -73,7 +168,7 @@
 
 
 
-
+*/
 .editModal{
 	position: fixed;
 	width: 100%;
