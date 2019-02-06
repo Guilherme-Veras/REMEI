@@ -31,16 +31,24 @@ header *{
     z-index: 15;
 }
 
-.descerBack .root h3{
-    margin-top: 15px;
+.descerBack .root .titInp{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
 }
 
-.root .sobre p{
+.root .sobre textarea{
     color: #636363;
     font-size: 20px;
     text-align: justify;
     margin-bottom: 5px;
-    line-height: 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
 }
 
 
@@ -61,9 +69,155 @@ header *{
     font-size: 15px;
 }
 
+.root .sumbitDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.root .sumbitDiv .sumbitBtn{
+    margin-left: 0px;
+    height: 45px;
+    font-size: 20px;
+    width: 166px;
+    height: 48px;
+    background: #e6e6e6;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    color: #FF6422;
+    box-shadow: 1px 1px 2px #888888;
+    font-weight: bolder;
+    animation-duration: alternate 4s;
+    margin-top: 20px;
+}
 
 
 
+
+.modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(1,1,1,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+}
+
+.modal .modalRoot{
+    width: 50%;
+    /*height: 75%;*/
+    background: #fff;
+    border-radius: 10px;
+    padding-bottom: 20px;
+    max-height: 100%;
+    transition: max-height 1s ease-out;
+}
+
+
+.modalRoot .selectType{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.modalRoot .selectType h3{
+    width: 50%;
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+}
+.modalRoot .selectType .closeModal{
+    padding: 20px 25px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.modalRoot .entradas > div{
+    width: 90%;
+    margin: auto;
+}
+
+.modalRoot .entradas{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.modalRoot .entradas input[type="text"], .modalRoot textarea, .modalRoot .caixaBusca{
+    border-radius: 50px;
+    background: #dadada;
+    width: 268px;
+    transition: all 0.5s;
+    box-shadow: 1px 1px 2px #888888;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    color: #000000;
+    outline: none;
+    border: none;
+    padding: 12px;
+}
+.modalRoot textarea, .modalRoot .caixaBusca{
+    resize: none;
+    height: 150px;
+    border-radius: 15px;
+    font-family: inherit;
+    padding: 0;
+    margin-top: 15px;
+    display: block !important;
+}
+
+.caixaBusca > div{
+    padding: 5px;
+    padding-left: 10px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+}
+
+.caixaBusca > div:hover{
+    color: #FF6422;
+}
+
+.caixaBusca > div.selected{
+    color: #FF6422;
+}
+
+.modal label{
+    margin-top: 20px;
+    display: block;
+}
+
+.modalRoot .btnAreaMeto{
+    display: flex;
+    justify-content: center;
+}
+
+.modal input[type="submit"]{
+    margin-left: 0px;
+    height: 45px;
+    font-size: 20px;
+    width: 166px;
+    height: 48px;
+    background: #e6e6e6;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 600;
+    color: #FF6422;
+    box-shadow: 1px 1px 2px #888888;
+    font-weight: bolder;
+    animation-duration: alternate 4s;
+    margin-top: 20px;
+}
 
 /*
 .entradas{
@@ -182,104 +336,4 @@ input[type="password"]{
 
 
 
-
-.modal{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(1,1,1,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 30;
-}
-
-.modal .modalRoot{
-    width: 30%;
-    /*height: 75%;*//*
-    background: #fff;
-    border-radius: 10px;
-    padding-bottom: 20px;
-    max-height: 100%;
-    transition: max-height 1s ease-out;
-}
-
-
-.modalRoot .selectType{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-.modalRoot .selectType h3{
-    width: 30%;
-    position: absolute;
-    text-align: center;
-    font-size: 25px;
-}
-.modalRoot .selectType .closeModal{
-    padding: 20px 25px;
-    font-size: 30px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.modalRoot .entradas > div{
-    width: 90%;
-    margin: auto;
-}
-
-.modalRoot .entradas{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.modalRoot .entradas input[type="text"], .modalRoot textarea{
-    border-radius: 50px;
-    background: #dadada;
-    width: 268px;
-    transition: all 0.5s;
-    box-shadow: 1px 1px 2px #888888;
-    width: 100%;
-    height: 50px;
-    font-size: 18px;
-    color: #000000;
-    outline: none;
-    border: none;
-    padding: 12px;
-}
-.modalRoot textarea{
-    resize: none;
-    height: 150px;
-    border-radius: 15px;
-    font-family: inherit;
-}
-
-.modal label{
-    margin-top: 20px;
-    display: block;
-}
-
-
-.modal input[type="submit"]{
-    margin-left: 0px;
-    height: 45px;
-    font-size: 20px;
-    width: 166px;
-    height: 48px;
-    background: #e6e6e6;
-    border-radius: 50px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 600;
-    color: #FF6422;
-    box-shadow: 1px 1px 2px #888888;
-    font-weight: bolder;
-    animation-duration: alternate 4s;
-    margin-top: 20px;
-}*/
+*/

@@ -108,7 +108,9 @@
 
 
 
-
+	function resizeTextArea(t) {
+		t.style.cssText = 'height:' + t.scrollHeight + 'px';
+	}
 
 
 
@@ -231,17 +233,128 @@
 
 
 
+	function resuRefil(t) {
+		if (t.value.length==0) {
+			t.value = "Clique para editar";
+		}
+	}
+
+	function salvarMetoArea() {
+		document.getElementById("metoFinal").value = document.getElementById("metodol").value
+		document.getElementById("areaFinal").value = document.getElementById("areass").value
+		if (document.getElementById("metodol").value!=0 && document.getElementById("areass").value!=0) {
+			document.getElementById("metoAreaSpan").innerHTML = "metodologia e area selecionadas";
+		}
+		openMetoModal()
+	}
+
+    function submitForm(){
+    	if (document.getElementById('metoFinal').value!=0 && document.getElementById('areaFinal').value!=0) {
+	    	document.getElementById('sumbitForm').submit();
+		}else{
+			alert('selecione uma metodologia e area');
+		}
+    }
 
 
+	function selectMeto(ind, t) {
+		btns = document.getElementsByClassName("metos");
+		for (i=0; i<btns.length; i++) {
+			btns[i].classList.remove("selected");
+		}
+		t.classList.add("selected");
+		document.getElementById("metodol").value = ind;			
+	}
 
+	function metoEntra(t) {
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', "api/metodologias");
+        xhr.onload = function() {
+	        json = JSON.parse(this.responseText);
+	        res = "";
+	        i = 0;
+	        //console.log(json)
+	        for (x in json) {
+	        	res += '<div class="metos" onclick="selectMeto('+json[x].met_id+', this)">'+json[x].met_nome+'</div>'
+	        	//txt += myObj[x].name + "<br>";
+	            i++;
+	        }
+	        res += '<div class="metos" onclick="newMeto()">Nova metodologia</div>'
+	        document.getElementById("caixaBuscaMeto").innerHTML = res;
+			apareceSelector1();
+        };
+        // prepare FormData
+        var formData = new FormData();
+        setTimeout(function(){
+        	formData.append('entrada', t.value); 
+        	xhr.send(formData);
+    	}, 200);
+	}
 
+	function newMeto() {
+		if (confirm("Deseja criar uma metodologia com nome de '"+document.getElementById('metoNome').value+"'")) {
+			var xhr = new XMLHttpRequest();
+	        xhr.open('POST', "api/newMeto");
+	        xhr.onload = function() {
+	        	console.log(this.responseText);
+	        	metoEntra(document.getElementById('metoNome'));
+	        };
+	        // prepare FormData
+	        var formData = new FormData();
+	        formData.append('nome', document.getElementById('metoNome').value);
+	        xhr.send(formData);
+        }
+	}
 
+	function selectArea(ind, t) {
+		btns = document.getElementsByClassName("areas");
+		for (i=0; i<btns.length; i++) {
+			btns[i].classList.remove("selected");
+		}
+		t.classList.add("selected");
+		document.getElementById("areass").value = ind;			
+	}
 
+	function areaEntra(t) {
+		var xhr = new XMLHttpRequest();
+        xhr.open('POST', "api/areas");
+        xhr.onload = function() {
+	        json = JSON.parse(this.responseText);
+	        console.log(this.responseText)
+	        res = "";
+	        i = 0;
+	        //console.log(json)
+	        for (x in json) {
+	        	res += '<div class="areas" onclick="selectArea('+json[x].are_id+', this)">'+json[x].are_nome+'</div>'
+	        	//txt += myObj[x].name + "<br>";
+	            i++;
+	        }
+	        res += '<div class="areas" onclick="newArea()">Nova area</div>'
+	        document.getElementById("caixaBuscaArea").innerHTML = res;
+			apareceSelector1();
+        };
+        // prepare FormData
+        var formData = new FormData();
+        setTimeout(function(){
+        	formData.append('entrada', t.value); 
+        	xhr.send(formData);
+    	}, 200);
+	}
 
-
-
-
-
+	function newArea() {
+		if (confirm("Deseja criar uma area com nome de '"+document.getElementById('metoArea').value+"'")) {
+			var xhr = new XMLHttpRequest();
+	        xhr.open('POST', "api/newArea");
+	        xhr.onload = function() {
+	        	console.log(this.responseText);
+	        	areaEntra(document.getElementById('metoArea'));
+	        };
+	        // prepare FormData
+	        var formData = new FormData();
+	        formData.append('nome', document.getElementById('metoArea').value);
+	        xhr.send(formData);
+        }
+	}
 
 
 
@@ -279,22 +392,4 @@
         xhr.send(formData);
     }
 
-
-    function submitForm(){
-    	document.getElementById('forTitulo').value      = document.getElementById('inpTitulo').value;
-    	document.getElementById('forResumo').value      = document.getElementById('inpResumo').value;
-    	document.getElementById('forDescricao').value   = document.getElementById('inpDescricao').value;
-    	document.getElementById('forMetodologia').value = document.getElementById('inpMetodologia').value;
-    	document.getElementById('forArea').value        = document.getElementById('inpArea').value;
-
-    	if (document.getElementById('inpTitulo').value.length>0 &&
-    		document.getElementById('inpResumo').value.length>0 &&
-    		document.getElementById('inpDescricao').value.length>0 &&
-    		document.getElementById('inpMetodologia').value.length>0 &&
-    		document.getElementById('inpArea').value.length>0) {
-	    	document.getElementById('sumbitForm').submit();
-		}else{
-			console.log('preencha td');
-		}
-    }
 </script>

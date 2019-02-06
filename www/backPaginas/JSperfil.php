@@ -12,13 +12,24 @@
                     	if(this.responseText == 1){		
             		        openEditModal();
             		        document.getElementById('perfNome').innerHTML = document.getElementById('editNome').value;
-            		        document.getElementById('perfDesc').innerHTML = document.getElementById('editDesc').value;
-            		        document.getElementById('perfInst').innerHTML = document.getElementById('editInst').value;
-                            if (document.getElementById('editLattes').value.length>0) {
-                		        document.getElementById('perfLatt').href = document.getElementById('editLattes').value;
-                                document.getElementById('perfLatt').innerHTML = "Link Lattes";
+                            if (document.getElementById('editDesc').value.length>0) {
+                                document.getElementById('perfDesc').innerHTML = document.getElementById('editDesc').value;
+                                document.getElementById('perfDescT').classList.remove("hidden");  
                             }else{
-                                document.getElementById('perfLatt').innerHTML = "";                            
+                                document.getElementById('perfDescT').classList.add("hidden");  
+                            }
+                            if (document.getElementById('editInst').value.length>0) {
+                                document.getElementById('perfInst').innerHTML = document.getElementById('editInst').value;
+                                document.getElementById('perfInstT').classList.remove("hidden");  
+                            }else{
+                                document.getElementById('perfInstT').classList.add("hidden");  
+                            }
+                            if (document.getElementById('editLattes').value.length>0) {
+                                document.getElementById('perfLatt').href = document.getElementById('editLattes').value;
+                		        document.getElementById('perfLatt2').innerHTML = document.getElementById('editLattes').value;
+                                document.getElementById('perfLattT').classList.remove("hidden");     
+                            }else{
+                                document.getElementById('perfLattT').classList.add("hidden");                            
                             }
                     	}
                     };
@@ -45,6 +56,13 @@
 		document.getElementById('editModal').classList.toggle('hidden');
 	}
 
+    function imgHover() {
+        document.getElementById("imgPerfilHover").classList.add("visible");
+    }
+
+    function imgHoverOut() {
+        document.getElementById("imgPerfilHover").classList.remove("visible");
+    }
 
     function openImg() {
         document.getElementById('imgUpload').click();

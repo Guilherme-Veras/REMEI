@@ -3,20 +3,55 @@
 		<div class="infos">
 			<p><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $user; ?>"> <?php echo $userNome; ?></a></p>
 			<p><img src="imgs/icons/calendar-white.svg"> <?php echo date("d/m/Y"); ?></p>
-			<p><img src="imgs/icons/tag-white.svg"> Clique para selecionar uma metodologia e uma area</p>
+			<p onclick="openMetoModal()"><img src="imgs/icons/tag-white.svg"> <span id="metoAreaSpan">Clique para selecionar uma metodologia e uma area</span></p>
 		</div>
 	</div>
 </section>
 <section class="descerBack">
 	<div class="root">
-		<h3 class="tilteSec">Clique para alterar o titulo</h3>
-		<div class="sobre">			
-			<p>Clique para alterar o resumo</p>
-			<textarea></textarea>
-			<p>Clique para alterar o texto</p>
-		</div>
+		<form method="post" id="sumbitForm">
+			<input type="hidden" id="metoFinal" name="metodologia" value="0">
+			<input type="hidden" id="areaFinal" name="area" value="0">
+			<input type="text" name="titulo" class="titInp" onblur="resuRefil(this)" value="Clique para alterar o titulo">
+			<div class="sobre">		
+				<textarea name="resumo" onkeydown="resizeTextArea(this)" onblur="resuRefil(this)">Clique para alterar o resumo</textarea>
+				<textarea name="descricao" onkeydown="resizeTextArea(this)" onblur="resuRefil(this)">Clique para alterar o texto</textarea>
+			</div>
+		</form>
+			<div class="sumbitDiv">
+				<input class="sumbitBtn" onclick="submitForm()" type="submit" value="Publicar">
+			</div>
 	</div>
 </section>
+<div class="newMetoModal modal hidden" id="metoModal">
+	<div class="modalRoot">
+		<div class="selectType">
+			<h3>Metodologia e Area</h3>
+			<a class="closeModal" onclick="openMetoModal()">&times;</a>
+		</div>
+	
+		<div class="entradas">
+			<div>
+				<label>Metodologia:</label>
+				<input type="text" onkeyup="metoEntra(this)" id="metoNome" placeholder="Digite o nome da metodologia">
+				<input type="hidden" id="metodol">
+				<div id="caixaBuscaMeto" class="caixaBusca">
+				</div>
+			</div>
+			<div>
+				<label>Area:</label>
+				<input type="text" onkeyup="areaEntra(this)" id="metoArea" placeholder="Digite o nome da area">
+				<input type="hidden" id="areass">
+				<div id="caixaBuscaArea" class="caixaBusca">
+					
+				</div>
+			</div>
+		</div>
+		<div class="btnAreaMeto">
+			<input type="submit" onclick="salvarMetoArea()" value="Salvar">
+		</div>
+	</div>
+</div>
 
 
 

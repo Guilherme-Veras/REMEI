@@ -150,7 +150,7 @@
 					if (document.getElementById('nome').value.split(" ").length>1) {
 						if (validateEmail(document.getElementById('email').value)) {
 							var xhr = new XMLHttpRequest();
-					        xhr.open('POST', "api/cadastro");
+					        xhr.open('POST', "apis/cadastro.php");
 					        xhr.onload = function() {
 					        	console.log(this.responseText);
 					        	if (this.responseText == 0) {//email ja usado

@@ -12,12 +12,34 @@ header *{
     justify-content: center;
 }
 
-.root .imgPerfil img{
+.root .imgPerfil > img{
     margin-top: -140px;
     height: 150px;
     width: 150px;
     border-radius: 75px;
 }
+
+.root .imgPerfil .imgPerfilHover{
+    margin-top: -140px;
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    position: absolute;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(1,1,1,0.5);
+}
+
+.root .imgPerfil .imgPerfilHover img{
+    height: 30px;
+}
+
+.root .editBtn{
+    position: absolute;
+}
+
 
 
 

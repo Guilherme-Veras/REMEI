@@ -2,7 +2,7 @@
 
 needLogin();
 
-if (isset($_POST["novoPost"])) {
+if (isset($_POST["titulo"])) {
 	
 
 	$titulo      = $_POST['titulo'];
@@ -17,9 +17,10 @@ if (isset($_POST["novoPost"])) {
 										values('$titulo','$resumo' ,'$descricao' ,'$data' ,$autor   ,$metodologia   ,$area);");
 	if ($result) {
 		echo 1;
+		ir_a("perfil?user=".$user);
 	}else{
 		echo 0;
+		echo "<script>console.log('Erro')</script>";
 	}
 }
-
 ?>

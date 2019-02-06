@@ -24,6 +24,13 @@ section{
     font-weight: bold;
 }
 
+.visible{
+    visibility: visible !important  ;
+}
+
+.pointer{
+    cursor: pointer;
+}
 
 
 

@@ -27,7 +27,7 @@
 	function blockIlegalCharacter(t) {
 		ilegal = ['/','\\','\'','"','>','<','[',']','+','=','*'];
 		text = t.value.split("");
-		console.log(text);
+		//console.log(text);
 		res = "";
 		for (i=0; i<text.length; i++) {
 			if (!ilegal.includes(text[i])) {
@@ -74,7 +74,7 @@
 	}
 	function estrelasHoverOut(t, q) {
 		estrelas = t.parentNode.childNodes;
-		console.log(estrelas);
+		//console.log(estrelas);
 		for (j=1; j<estrelas.length-1; j++) {
 			if (q>=j*20) {
 				estrelas[j].src = 'imgs/icons/star-black.svg';
