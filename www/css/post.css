@@ -61,7 +61,16 @@ header *{
 	font-size: 15px;
 }
 
+.media{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    margin: auto;
+}
 
+.media *{
+	margin-top: 10px;
+}
 
 .rancom{
 	margin-top: 30px;

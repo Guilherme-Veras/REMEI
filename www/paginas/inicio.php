@@ -31,26 +31,25 @@
 		</div>
 	</div>
 </section>
-<section class="descerBack">
+<section class="descerBack" id="alta">
 	<div class="root">
 		<h3 class="tilteSec">Em alta</h3>
-		<div>
-			<?php
+		<div class="carro">
+			<img onclick="carroLeft()" src="imgs/icons/arrow-left-black.svg">
+			<div id="postsCarro">
+				<?php
 
-			for ($i=0; $i<sizeof($posts); $i++) { 
-				getPost($posts[$i]);
-			}
+				for ($i=0; $i<sizeof($posts); $i++) { 
+					getPost($posts[$i]);
+				}
 
-			?>
+				?>
+			</div>
+			<img onclick="carroRight()" src="imgs/icons/arrow-right-black.svg">
 		</div>
 		<div class="sobre">
 			<h3 class="tilteSec">Sobre nós</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			<p>Na REMEI você encontrará metodologias de ensino atuais, metodologias ativas, inovadoras e ainda ferramentas tecnológicas e computacionais para aplicação no processo de ensino em sala de aula. Nosso objetivo é desmistificar a tecnologia e a computação para os docentes e incentivar seu uso em sala de aula, mostrando que todo professor é capaz de dominar metodologias inovadoras de ensino, que também podem fazer uso de informática e computação no seu processo. </p>
 		</div>
 	</div>
 </section>

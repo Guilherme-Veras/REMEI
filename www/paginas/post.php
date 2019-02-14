@@ -3,7 +3,7 @@
 		<div class="infos">
 			<p><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $dados['autorId']; ?>"> <?php echo $dados['autor']; ?></a></p>
 			<p><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($dados['data']),"d/m/Y"); ?></p>
-			<p><img src="imgs/icons/tag-white.svg"> <?php echo $dados['metodologia']." ".$dados['area']; ?></p>
+			<p><img src="imgs/icons/tag-white.svg"> <?php echo $dados['metodologia']." - ".$dados['area']; ?></p>
 		</div>
 	</div>
 </section>
@@ -13,6 +13,26 @@
 		<div class="sobre">			
 			<p><?php echo $dados['resumo']; ?></p>
 			<p><?php echo $dados['descricao']; ?></p>
+		</div>
+		<div class="media">
+			<?php
+				for ($i=0; $i<sizeof($videos); $i++) { 
+					?>
+						<video width="320" height="240" controls>
+							<source src="imgs/post/<?php echo ($post.'/'.$videos[$i]); ?>" type="video/mp4">
+						Your browser does not support the video.
+						</video>
+						<label><?php echo substr($videos[$i], 0, -4); ?></label>
+					<?php
+				}
+				for ($i=0; $i<sizeof($fotos); $i++) { 
+					?>
+						<img src="imgs/post/<?php echo ($post.'/'.$fotos[$i]); ?>">
+						<label><?php echo substr($fotos[$i], 0, -4); ?></label>
+					<?php
+				}
+			?>
+			
 		</div>
 	</div>
 	<div class="root rancom">

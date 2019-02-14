@@ -24,4 +24,24 @@ if($result->rowCount() > 0){
 }else{
 	$rankAtual = 0;
 }
+
+
+$fotos = array();
+$videos = array();
+
+chdir("imgs/post/");
+if (file_exists($post)) {
+	chdir($post);
+	$arqs = scandir(getcwd());
+
+	for ($i=2; $i<sizeof($arqs); $i++) { 
+		$temp = new SplFileInfo($arqs[$i]);
+		if ($temp->getExtension() == "mp4") {
+			array_push($videos, $arqs[$i]);
+		}else{
+			array_push($fotos, $arqs[$i]);
+		}
+	}
+	chdir("../../..");
+}
 ?>

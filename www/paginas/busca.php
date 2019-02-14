@@ -15,7 +15,9 @@
 		</form>
 		<div>
 			<?php
-
+                        if(sizeof($posts)==0){
+                        echo "Não foi achado nenhum post";
+}
 			for ($i=0; $i<sizeof($posts); $i++) { 
 				getPost($posts[$i]);
 			}

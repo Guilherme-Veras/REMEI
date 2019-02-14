@@ -42,4 +42,40 @@
 		}
 	}
 	defineTamanhoInicio();
+
+	carroIn = 0;
+
+	postsCarro = document.getElementById('postsCarro').children;
+	for (i=0; i<postsCarro.length;i++){
+		postsCarro[i].classList.add("hidden");
+	}
+	postsCarro[carroIn].classList.remove("hidden")
+	
+	function carroLeft() {
+		console.log(carroIn)
+		postsCarro = document.getElementById('postsCarro').children;
+		for (i=0; i<postsCarro.length;i++){
+			postsCarro[i].classList.add("hidden");
+		}
+		if (carroIn == 0) {
+			carroIn = postsCarro.length-1;
+		}else{
+			carroIn--;
+		}
+		postsCarro[carroIn].classList.remove("hidden")
+	}
+
+	function carroRight() {
+		console.log(carroIn)
+		postsCarro = document.getElementById('postsCarro').children;
+		for (i=0; i<postsCarro.length;i++){
+			postsCarro[i].classList.add("hidden");
+		}
+		if (carroIn == postsCarro.length-1) {
+			carroIn = 0;
+		}else{
+			carroIn++;
+		}
+		postsCarro[carroIn].classList.remove("hidden")
+	}
 </script>

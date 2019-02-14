@@ -10,7 +10,13 @@
 
 <section class="descerBack">
 	<div class="root">
+		<?php
+			if($user == $perfUser){
+		?>
 		<div class="editBtn"><img class="pointer" onclick="openEditModal()" src="imgs/icons/edit-black.svg"></div>
+		<?php
+			}
+		?>
 		<h3 class="tilteSec"><span id="perfNome"><?php echo $dados['usu_nome']; ?></span></h3>
 		<div class="sobre">			
 			<p><span class="negrito">Email: </span><span><?php echo $dados['usu_email']; ?></span></p>
@@ -29,8 +35,14 @@
 		<h3 class="tilteSec">Posts de <?php echo $dados['usu_nome']; ?></h3>
 		<div>
 			<?php
-			for ($i=0; $i<sizeof($posts); $i++) { 
-				getPost($posts[$i]);
+			if ($user == $perfUser) {
+				for ($i=0; $i<sizeof($posts); $i++) { 
+					getPostAdmin($posts[$i]);
+				}
+			}else{
+				for ($i=0; $i<sizeof($posts); $i++) { 
+					getPost($posts[$i]);
+				}				
 			}
 			?>
 		</div>
@@ -55,7 +67,7 @@
 				<label>Descrição:</label>
 				<textarea id="editDesc" maxlength="300" onkeyup="blockIlegalCharacter(this); runOnEnter(event, editar)" placeholder="Digite um breve descrição da sua vida academica"><?php echo $dados['usu_descricao']; ?></textarea>
 				<label>Instituição:</label>
-				<input type="text" maxlength="40" onkeyup="blockIlegalCharacter(this); runOnEnter(event, editar)" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
+				<input type="text" maxlength="50" onkeyup="blockIlegalCharacter(this); runOnEnter(event, editar)" id="editInst" placeholder="Digite sua instituição" value="<?php echo $dados['usu_instituicao']; ?>">
 				<label>Lattes:</label>
 				<input type="text" maxlength="40" onkeyup="runOnEnter(event, editar)" id="editLattes" placeholder="Digite seu Lattes (http://lattes.cnpq.br/0000000000000000)" value="<?php echo $dados['usu_lattes']; ?>">
 				<label class="erro hidden" id="lattesErro">Link inválido</label>

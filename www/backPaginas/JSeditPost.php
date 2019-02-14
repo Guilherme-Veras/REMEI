@@ -1,234 +1,8 @@
 <script type="text/javascript">
-	selectedHover1 = null;
-	selected1 = false;
-	function setHover1(i) {
-		//console.log(i)
-		apareceSelector1();
-		options = document.getElementsByClassName('selOpt1');
-		for (j=0; j<options.length; j++) {
-			options[j].classList.remove('hover');
-		}
-		options[i].classList.add('hover');
-		selectedHover1 = i;
-	}
-
-	function changeBySeta1(event, t) {
-		options = document.getElementsByClassName('selOpt1');
-		if (event.keyCode == 13) {
-			if (options[selectedHover1].id.replace("sele1","") == 'a') {
-				openMetoModal();
-			}else{
-				document.getElementById('selectorRes1').innerHTML = options[selectedHover1].innerHTML;
-				document.getElementById('selectorRes1').classList.remove('hidden');
-				document.getElementById('inpMetodologia').value = options[selectedHover1].id.replace("sele1","");
-				t.value = options[selectedHover1].innerHTML;
-				selected1 = true;
-			}
-		}else{
-			if (event.keyCode == 40) {//baixo
-				if (selectedHover1 == null) {
-					selectedHover1 = 0;
-				}else if (selectedHover1+1  >= options.length) {
-					selectedHover1 = 0;
-				}else{
-					selectedHover1++;
-				}
-			}else if(event.keyCode == 38){//cima
-				if (selectedHover1 == null) {
-					selectedHover1 = options.length-1;
-				}else if (selectedHover1-1  < 0) {
-					selectedHover1 = options.length-1;
-				}else{
-					selectedHover1--;
-				}
-			}else{
-				if (selected1) {
-					if (event.keyCode == 8) {
-						document.getElementById('selectorRes1').classList.add('hidden');
-						selected1 = false;
-					}else{
-						t.value = options[selectedHover1].innerHTML;
-					}
-					return;
-				}else{
-					selectedHover1 = 0;
-
-					var xhr = new XMLHttpRequest();
-			        xhr.open('POST', "api/metodologias");
-			        xhr.onload = function() {
-				        json = JSON.parse(this.responseText);
-				        res = "";
-				        i = 0;
-				        //console.log(json)
-				        for (x in json) {
-				        	res += '<div class="selOpt1" onclick="defineSel1(this)" id="sele1'+json[x].met_id+'" onmouseover="setHover1('+i+')">'+json[x].met_nome+'</div>'
-				            //txt += myObj[x].name + "<br>";
-				            i++;
-				        }
-				        res += '<div class="selOpt1" onclick="defineSel1(-1)" id="sele1a" onmouseover="setHover1('+i+')">Adicionar metodologia</div>'
-				        document.getElementById("selector1").innerHTML = res;
-						apareceSelector1();
-			        };
-			        // prepare FormData
-			        var formData = new FormData();
-			        setTimeout(function(){
-			        	formData.append('entrada', t.value); 
-			        	xhr.send(formData);
-			    	}, 200);
-				}
-			}
-			for (j= 0; j<options.length; j++) {
-				options[j].classList.remove('hover');
-			}
-			options[selectedHover1].classList.add('hover');
-		}
-	}
-
-	function someSelector1() {
-		document.getElementById('selector1').classList.add('hidden');
-	}
-	function apareceSelector1() {
-		document.getElementById('selector1').classList.remove('hidden');
-	}
-
-	function defineSel1(t) {
-		if (t == -1) {
-			openMetoModal();
-		}else{
-			document.getElementById('selectorRes1').innerHTML = t.innerHTML;
-			document.getElementById('selectorRes1').classList.remove('hidden');
-			document.getElementById('inpMetodologia').value = t.id.replace("sele1","");
-			document.getElementById('selectorInp1').value = options[selectedHover1].innerHTML;
-			selected1 = true;
-		}
-	}
-
-
-
-
-
 
 	function resizeTextArea(t) {
 		t.style.cssText = 'height:' + t.scrollHeight + 'px';
 	}
-
-
-
-
-
-
-
-
-
-
-
-	selectedHover2 = null;
-	selected2 = false;
-	function setHover2(i) {
-		//console.log(i)
-		apareceSelector2();
-		options = document.getElementsByClassName('selOpt2');
-		for (j=0; j<options.length; j++) {
-			options[j].classList.remove('hover');
-		}
-		options[i].classList.add('hover');
-		selectedHover2 = i;
-	}
-
-	function changeBySeta2(event, t) {
-		options = document.getElementsByClassName('selOpt2');
-		if (event.keyCode == 13) {
-			if (options[selectedHover2].id.replace("sele2","") == 'a') {
-				openAreaModal();
-			}else{
-				document.getElementById('selectorRes2').innerHTML = options[selectedHover2].innerHTML;
-				document.getElementById('selectorRes2').classList.remove('hidden');
-				document.getElementById('inpArea').value = options[selectedHover2].id.replace("sele2","");
-				t.value = options[selectedHover1].innerHTML;
-				selected1 = true;
-			}
-		}else{
-			if (event.keyCode == 40) {//baixo
-				if (selectedHover2 == null) {
-					selectedHover2 = 0;
-				}else if (selectedHover2+1  >= options.length) {
-					selectedHover2 = 0;
-				}else{
-					selectedHover2++;
-				}
-			}else if(event.keyCode == 38){//cima
-				if (selectedHover2 == null) {
-					selectedHover2 = options.length-1;
-				}else if (selectedHover1-1  < 0) {
-					selectedHover2 = options.length-1;
-				}else{
-					selectedHover2--;
-				}
-			}else{
-				if (selected2) {
-					if (event.keyCode == 8) {
-						document.getElementById('selectorRes2').classList.add('hidden');
-						selected2 = false;
-					}else{
-						t.value = options[selectedHover2].innerHTML;
-					}
-					return;
-				}else{
-					selectedHover2 = 0;
-
-					var xhr = new XMLHttpRequest();
-			        xhr.open('POST', "api/areas");
-			        xhr.onload = function() {
-				        json = JSON.parse(this.responseText);
-				        res = "";
-				        i = 0;
-				        //console.log(json)
-				        for (x in json) {
-				        	res += '<div class="selOpt2" onclick="defineSel2(this)" id="sele2'+json[x].are_id+'" onmouseover="setHover2('+i+')">'+json[x].are_nome+'</div>'
-				            //txt += myObj[x].name + "<br>";
-				            i++;
-				        }
-				        res += '<div class="selOpt2" onclick="defineSel2(-1)" id="sele2a" onmouseover="setHover2('+i+')">Adicionar metodologia</div>'
-				        document.getElementById("selector2").innerHTML = res;
-						apareceSelector2();
-			        };
-			        // prepare FormData
-			        var formData = new FormData();
-			        setTimeout(function(){
-			        	formData.append('entrada', t.value); 
-			        	xhr.send(formData);
-			    	}, 200);
-				}
-			}
-			for (j= 0; j<options.length; j++) {
-				options[j].classList.remove('hover');
-			}
-			options[selectedHover2].classList.add('hover');
-		}
-	}
-
-	function someSelector2() {
-		document.getElementById('selector2').classList.add('hidden');
-	}
-	function apareceSelector2() {
-		document.getElementById('selector2').classList.remove('hidden');
-	}
-
-	function defineSel2(t) {
-		if (t == -1) {
-			openAreaModal();
-		}else{
-			document.getElementById('selectorRes2').innerHTML = t.innerHTML;
-			document.getElementById('selectorRes2').classList.remove('hidden');
-			document.getElementById('inpArea').value = t.id.replace("sele2","");
-			document.getElementById('selectorInp2').value = options[selectedHover2].innerHTML;
-			selected2 = true;
-		}
-	}
-
-
-
-
 
 
 
@@ -282,7 +56,6 @@
 	        }
 	        res += '<div class="metos" onclick="newMeto()">Nova metodologia</div>'
 	        document.getElementById("caixaBuscaMeto").innerHTML = res;
-			apareceSelector1();
         };
         // prepare FormData
         var formData = new FormData();
@@ -307,7 +80,7 @@
         }
 	}
 
-	function selectArea(ind, t) {
+	function selectArea(ind, t, nome) {
 		btns = document.getElementsByClassName("areas");
 		for (i=0; i<btns.length; i++) {
 			btns[i].classList.remove("selected");
@@ -333,7 +106,6 @@
 	        }
 	        res += '<div class="areas" onclick="newArea()">Nova area</div>'
 	        document.getElementById("caixaBuscaArea").innerHTML = res;
-			apareceSelector1();
         };
         // prepare FormData
         var formData = new FormData();
@@ -402,9 +174,6 @@
         if (!filelist || !filelist.length || list.length) return;
         result.textContent = '';
         for (var i = 0; i < filelist.length; i++) {
-        	console.log(filelist[i])
-        	filelist[i].name = "teste.png"
-        	console.log(filelist[i])
         	if (filelist[i].type == "image/jpeg" || filelist[i].type == "image/png" || filelist[i].type == "video/mp4") {
         		valid = 1;
         		validText = "<span class='filePronto'>Pronto";
@@ -412,14 +181,9 @@
         		valid = 2;
         		validText = "<span class='fileError'>Arquivo inválido";
         	}
-        	result.innerHTML += "<p id='arq"+i+"'><img onclick='removeFile("+i+")' src='imgs/icons/close-black.svg'>"+filelist[i].name+" - "+validText+"</span></p>";
+        	result.innerHTML += "<p id='arq"+i+"'>"+filelist[i].name+" - "+validText+"</span></p>";
             list.push([filelist[i], valid]);
         }
-    }
-
-    function removeFile(i) {
-    	lius[i, 1] = 2;
-    	document.getElementById('arq'+i).style.display = "none";
     }
 
     err = true;
@@ -464,6 +228,9 @@
     function upload(){
     	rand = makeid(7);
     	document.getElementById('randFinal').value = rand;
+    	if (list.length==0) {
+			document.getElementById('sumbitForm').submit();
+    	}
 		for (var i = 0; i < list.length; i++) {
 			if (list[i][1] == 1 || list[i][1] == 3) {
 				if (i==list.length-1) {
@@ -473,7 +240,6 @@
 				}
 		    }
         }
-        document.getElementById('sumbitForm').submit();
     }
 
 	initHandlers();			

@@ -16,6 +16,16 @@
 		}
 	}
 
+	function makeid(t) {
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+		for (var i = 0; i < t; i++)
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+		return text;
+	}
+
 	function logout() {
 		var xhr = new XMLHttpRequest();
         xhr.open('POST', "api/logout");

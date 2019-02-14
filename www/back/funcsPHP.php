@@ -118,4 +118,41 @@ function getPost($dados){
 		';
 }
 
+
+function getPostAdmin($dados){
+	echo '
+		<div class="blog-card">
+		 	<div class="meta">
+		 		<div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-1.jpg)"></div>
+		 		<ul class="details">
+		 			<li class="author"><img src="imgs/icons/person-white.svg"><a href="perfil?user='.$dados["autorId"].'"> '.ajustaNome($dados["autor"]).'</a></li>
+		 			<li class="date"><img src="imgs/icons/calendar-white.svg"> '.date_format(date_create($dados["data"]),"d/m/Y").'</li>
+		 			<li class="tags">
+		 				<ul>
+				            <li><img src="imgs/icons/tag-white.svg"> '.$dados["metodologia"].'</li>
+				            <li>'.$dados["area"].'</li>
+				        </ul>
+				    </li>
+				</ul>
+		    </div>
+		    <div class="description">
+		      <h1>'.$dados["titulo"].'</h1>
+		      <!--h2>Opening a door to the future</h2-->
+			  <p>'.$dados["resumo"].'</p>
+				<p class="card-rodape">
+					<fieldset class="rating">
+						'.estrelasR($dados["ranking"], 0, 0).'
+					</fieldset>
+
+					<p class="read-more">
+						<a class="read-more-link" href="post?post='.$dados["id"].'">Ler mais </a>
+						<a class="read-more-link" onclick="delPost('.$dados["id"].')">Deletar </a>
+						<a class="read-more-link" href="editPost?i='.$dados["id"].'">Editar </a>
+					</p>
+				</p>
+		    </div> 
+		</div>
+		';
+}
+
 ?>

@@ -7,9 +7,9 @@
 		<div class="nav">
 			<ul>
 				<li><a href="inicio">Home</a></li>
-				<li><a href="alta">Em alta</a></li>
+				<li><a href="alta#alta">Em alta</a></li>
 				<li><a href="projeto">O Projeto</a></li>
-				<li><a href="integrantes">Integrantes</a></li>
+				<li><a href="contato">Contato</a></li>
 			</ul>
 		</div>
 		<div class="login">
@@ -50,9 +50,9 @@
 			<a class="closeModal" onclick="mobileNavOpener()">&times;</a>
 			<ul>
 				<li onclick="redir('inicio')">Home</li>
-				<li onclick="redir('alta')">Em alta</li>
+				<li onclick="redir('alta#alta')">Em alta</li>
 				<li onclick="redir('projeto')">O projeto</li>
-				<li onclick="redir('integrantes')">Integrantes</li>
+				<li onclick="redir('contato')">Contato</li>
 			</ul>
 
 			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>">

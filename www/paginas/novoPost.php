@@ -12,10 +12,18 @@
 		<form method="post" id="sumbitForm">
 			<input type="hidden" id="metoFinal" name="metodologia" value="0">
 			<input type="hidden" id="areaFinal" name="area" value="0">
+			<input type="hidden" id="randFinal" name="rand" value="0">
 			<input type="text" name="titulo" class="titInp" onblur="resuRefil(this)" value="Clique para alterar o titulo">
 			<div class="sobre">		
 				<textarea name="resumo" onkeydown="resizeTextArea(this)" onblur="resuRefil(this)">Clique para alterar o resumo</textarea>
 				<textarea name="descricao" onkeydown="resizeTextArea(this)" onblur="resuRefil(this)">Clique para alterar o texto</textarea>
+			</div>
+			<div class="files">
+				<div id="caixaDeDrop" class="caixaDeDrop">
+					<p>Arreste imagens e videos para aqui</p>
+				</div>
+				<div id="result" class="result">
+				</div>
 			</div>
 		</form>
 			<div class="sumbitDiv">
@@ -35,6 +43,7 @@
 				<label>Metodologia:</label>
 				<input type="text" onkeyup="metoEntra(this)" id="metoNome" placeholder="Digite o nome da metodologia">
 				<input type="hidden" id="metodol">
+				<input type="hidden" id="metodolNome">
 				<div id="caixaBuscaMeto" class="caixaBusca">
 				</div>
 			</div>
@@ -42,6 +51,7 @@
 				<label>Area:</label>
 				<input type="text" onkeyup="areaEntra(this)" id="metoArea" placeholder="Digite o nome da area">
 				<input type="hidden" id="areass">
+				<input type="hidden" id="areassNome">
 				<div id="caixaBuscaArea" class="caixaBusca">
 					
 				</div>
