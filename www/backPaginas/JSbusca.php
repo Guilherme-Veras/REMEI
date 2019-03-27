@@ -1,6 +1,5 @@
 <script type="text/javascript">
-	function changeFiltro(i) {
-		document.getElementById('filtroValue').value = i;
-		document.getElementById('searchForm').submit();
+	function defFiltro(i) {
+		document.getElementById('filtroId').value = i;
 	}
 </script>

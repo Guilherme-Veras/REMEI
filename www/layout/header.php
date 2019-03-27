@@ -1,209 +1,80 @@
-<header>
-	<div class="webHeader">
-		<div class="logo">
-			<!--img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png"-->
-			<a href="inicio"><img src="imgs/logo/logo-remei-semchapeu-branco.png"></a>
-		</div>
-		<div class="nav">
-			<ul>
-				<li><a href="inicio">Home</a></li>
-				<li><a href="alta#alta">Em alta</a></li>
-				<li><a href="projeto">O Projeto</a></li>
-				<li><a href="contato">Contato</a></li>
-			</ul>
-		</div>
-		<div class="login">
-			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>" id="deslogado">
-				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
-			</div>
-			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
-				<img src="imgs/perfil/<?php echo $user; ?>.jpg" id="perfilImgWeb">
-				<p onclick="openDropLogin()" id="perfilNomeWeb"><?php echo explode(" ",$userNome)[0]; ?><img src="imgs/icons/arrow-drop-down-white.svg"></p>
-				<div class="dropLogin hidden" id="dropLogin">
-					<ul>
-						<li><a href="perfil?user=<?php echo $user; ?>">Ver Perfil</a></li>
-						<hr>
-						<li><a href="novoPost">Novo Post</a></li>
-						<hr>
-						<li onclick="logout()">Sair</li>
-					</ul>
-				</div>
-			</div>
-			<script type="text/javascript">
-				function openDropLogin() {
-					document.getElementById('dropLogin').classList.toggle('hidden');
-					document.getElementById('dropLogin').style.width = document.getElementById('logadoDiv').offsetWidth + "px";
-				}
-			</script>
-		</div>
-	</div>
-	<div class="mobileHeader">
-		<div class="logo">
-			<img onclick="redir('inicio')" src="imgs/logo/logo-remei-black.png">
-		</div>
-		<div class="menuOpener">
-			<p onclick="mobileNavOpener()">&#9776;</p>
-		</div>
-	</div>
-	<div class="mobileNav hidden" id="mobileNav">
-		<div class="mobileNavDentro">
-			<a class="closeModal" onclick="mobileNavOpener()">&times;</a>
-			<ul>
-				<li onclick="redir('inicio')">Home</li>
-				<li onclick="redir('alta#alta')">Em alta</li>
-				<li onclick="redir('projeto')">O projeto</li>
-				<li onclick="redir('contato')">Contato</li>
-			</ul>
+ <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
+        <div class="container">
+            <div class="navbar-translate">
+                <a class="navbar-brand" onclick="inicio()"> REMEI </a>
 
-			<div class="deslogado <?php if($user != 0){ echo 'hidden'; } ?>">
-				<p onclick="openLoginModal()">Entrar/Cadastrar</p>
-			</div>
-			<div class="logado <?php if($user == 0){ echo 'hidden'; } ?>" id="logadoDiv">
-				<div class="imgNome">
-					<img src="imgs/perfil/<?php echo $user; ?>.jpg">
-					<p onclick="openDropLogin()"><?php echo $userNome; ?></p>
-				</div>
-				<ul>
-					<li onclick="redir('perfil?user=<?php echo $user; ?>')">Ver Perfil</li>
-					<li onclick="redir('novoPost')">Novo Post</li>
-					<li onclick="logout()">Sair</li>
-				</ul>
-			</div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
 
-		</div>
-	</div>
-	<script type="text/javascript">
-		function mobileNavOpener() {
-			document.getElementById('mobileNav').classList.toggle('hidden');
-		}
-	</script>
-</header>
-<div class="loginModal hidden" id="loginModal">
-	<div class="modalRoot">
-		<div class="selectType">
-			<ul>
-				<li class="selected" id="loginSele0" onclick="chengeLoginTab(0)">Entrar</li>
-				<li id="loginSele1" onclick="chengeLoginTab(1)">Cadastrar</li>
-			</ul>
-			<a class="closeModal" onclick="openLoginModal()">&times;</a>
-		</div>
-		<div class="entradas" id="login0">
-			<div>
-				<label>Email:</label>
-				<input type="text" id="emailLogin" onkeyup="runOnEnter(event, logar)" placeholder="Digite seu email">
-				<label class="erro hidden" id="emailErroLogin">Email incorreto</label>
-				<label>Senha:</label>
-				<input type="password" id="senhaLogin" onkeyup="runOnEnter(event, logar)" placeholder="Digite sua senha">
-				<label class="erro hidden" id="senhaErroLogin">Senha incorreta</label>
-				<a>Esqueceu a senha?</a><br>
-				<div>
-					<input type="submit" onclick="logar()" value="Entrar">
-				</div>
-			</div>
-			<script type="text/javascript">
-				function logar(){
-					document.getElementById('emailErroLogin').classList.add('hidden');
-					document.getElementById('senhaErroLogin').classList.add('hidden');
-					var xhr = new XMLHttpRequest();
-			        xhr.open('POST', "api/login");
-			        xhr.onload = function() {
-			        	if (this.responseText == 0){//email errado
-							document.getElementById('emailErroLogin').classList.remove('hidden');
-			        	}else if(this.responseText == 1){//senha incorrera
-							document.getElementById('senhaErroLogin').classList.remove('hidden');
-			        	}else if(typeof (this.responseText) === 'string'){//sucess
-			        		//openLoginModal();
-			        		//document.getElementById('perfilNomeWeb').innerHTML = this.responseText+'<img src="imgs/icons/arrow-drop-down-white.svg">';
-			        		//document.getElementById('deslogado').classList.add('hidden');
-			        		//document.getElementById('logadoDiv').classList.remove('hidden');
-			        		reload();
-			        	}else{//qualquer outro erro
-							document.getElementById('emailErroLogin').classList.remove('hidden');
-			        	}
-			        };
-			        // prepare FormData
-			        var formData = new FormData();
-			        formData.append('email', document.getElementById('emailLogin').value);
-			        formData.append('senha', document.getElementById('senhaLogin').value);
-			        xhr.send(formData);
-			    }
-			</script>
-		</div>
-		<div class="entradas hidden" id="login1">
-			<div>
-				<label>Nome:</label>
-				<input type="text" onkeyup="blockIlegalCharacter(this); runOnEnter(event, criarConta)" id="nome" placeholder="Digite seu nome">
-				<label class="erro hidden" id="nomeErro2">Informe o nome completo</label>
-				<label>Email:</label>
-				<input type="text" onkeyup="runOnEnter(event, criarConta)" id="email" placeholder="Digite seu email">
-				<label class="erro hidden" id="emailErroCad">Email inválido</label>
-				<label>Senha:</label>
-				<input type="password" onkeyup="runOnEnter(event, criarConta)" id="senha" placeholder="Crie uma senha">
-				<div>
-					<input type="submit" onclick="criarConta()" value="Cadastrar">
-				</div>
-			</div>
-			<script type="text/javascript">
-				function criarConta(){
-					document.getElementById('nomeErro2').classList.add('hidden');
-					document.getElementById('emailErroCad').classList.add('hidden');
-					if (document.getElementById('nome').value.split(" ").length>1) {
-						if (validateEmail(document.getElementById('email').value)) {
-							var xhr = new XMLHttpRequest();
-					        xhr.open('POST', "apis/cadastro.php");
-					        xhr.onload = function() {
-					        	console.log(this.responseText);
-					        	if (this.responseText == 0) {//email ja usado
-									document.getElementById('emailErroCad').classList.remove('hidden');
-					        	}else if(this.responseText == 1){//sucess
-					        		openLoginModal();
-					        		document.getElementById('perfilNomeWeb').innerHTML = document.getElementById('nome').value+'<img src="imgs/icons/arrow-drop-down-white.svg">';
-					        		document.getElementById('deslogado').classList.add('hidden');
-					        		document.getElementById('logadoDiv').classList.remove('hidden');
-					        	}else{//qualquer outro erro
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a onclick="inicio()" class="nav-link">
+                            Inicio
+                        </a>
+                    </li>
 
-					        	}
-					        };
-					        // prepare FormData
-					        var formData = new FormData();
-					        formData.append('nome', document.getElementById('nome').value);
-					        formData.append('email', document.getElementById('email').value);
-					        formData.append('senha', document.getElementById('senha').value);
-					        xhr.send(formData);	
-						}else{
-							document.getElementById('emailErroCad').classList.remove('hidden');
-						}
-					}else{
-                		document.getElementById('nomeErro2').classList.remove('hidden');
-					}
-			    }
-			</script>			
-		</div>
-		<script type="text/javascript">
-			function chengeLoginTab(i) {
-				document.getElementById('loginSele0').classList.remove('selected');
-				document.getElementById('loginSele1').classList.remove('selected');
-				document.getElementById('loginSele'+i).classList.add('selected');
+                    <li class="dropdown nav-item">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            Projeto
+                        </a>
+                        <div class="dropdown-menu dropdown-with-icons">
+                            <a href="historia" class="dropdown-item">
+                                História
+                            </a>
+                            <a href="integrantes" class="dropdown-item">
+                                Equipe
+                            </a>
+                        </div>
+                    </li>
 
-				document.getElementById('login0').classList.add('hidden');
-				document.getElementById('login1').classList.add('hidden');
-				document.getElementById('login'+i).classList.remove('hidden');
-			}
-		</script>
-	</div>
-</div>
-<script type="text/javascript">
-	function openLoginModal() {
-		document.getElementById('loginModal').classList.toggle('hidden');
-	}
-	window.onscroll = function() {
-		if (document.getElementsByTagName('BODY')[0].scrollTop > 0) {
-			document.getElementsByTagName('HEADER')[0].classList.add("fundo");
-		}else{
-			document.getElementsByTagName('HEADER')[0].classList.remove("fundo");
-		}
-
-	};
-
-
-</script>
+                    <li class="nav-item">
+                        <a href="contato" class="nav-link">
+                            Contato
+                        </a>
+                    </li>
+                    <?php
+                        if ($user != 0) {
+                            ?>
+                                <li class="nav-item">
+                                    <a href="perfil?user=<?php echo $user; ?>" class="nav-link">
+                                        <?php echo explode(" ",$userNome)[0]; ?>
+                                    </a>
+                                </li>
+                                <li class="dropdown nav-item">                                    <a href="perfil?user=<?php echo $user; ?>" class="profile-photo dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile-photo-small">
+                                            <img src="imgs/perfil/<?php echo $user; ?>.jpg" alt="Circle Image" class="rounded-circle img-fluid">
+                                        </div>
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="perfil?user=<?php echo $user; ?>">Ver Perfil</a>
+                                        <a href="novoPost" class="dropdown-item">Novo Post</a>
+                                        <a onclick="logout()" class="dropdown-item">Sair</a>
+                                    </div>
+                                </li>
+                            <?php
+                        }else{
+                            ?>
+                                <li class="nav-item">
+                                    <a href="login" class="nav-link">
+                                        Login
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="cadastro" class="nav-link">
+                                        Cadastro
+                                    </a>
+                                </li>
+                            <?php
+                        }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>

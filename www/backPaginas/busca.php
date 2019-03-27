@@ -1,10 +1,14 @@
 <?php 
 
-if (!isset($_GET['busca']) || !isset($_GET['filtro'])) {
+if (!isset($_GET['busca'])) {
 	inicio();
 }
 
-$filtro = $_GET['filtro'];
+if (!isset($_GET['filtro'])) {
+	$filtro = 0;
+}else{
+	$filtro = $_GET['filtro'];
+}
 $busca  = $_GET['busca'];
 
 switch ($filtro) {

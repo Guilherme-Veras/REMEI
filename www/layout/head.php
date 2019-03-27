@@ -7,13 +7,23 @@
   <title>REMEI - <?php echo $paginaAtual; ?></title>
 
   <link rel="icon" href="imgs/logo/favicon.png">
-  <!-- Arquivos base >
-  <link rel="stylesheet" href="css/normalize.css"-->
-  <link rel="stylesheet" href="css/main.css">
-  <!-- Arquivos de componentes(pedaços do site) -->
-  <link rel="stylesheet" href="css/header.css">
-  <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/<?php echo $paginaAtualBasico; ?>.css">
+
+  
+    <link rel="stylesheet" type="text/css" href="css/stye_cards-jece.css">
+    <link rel="stylesheet" type="text/css" href="css/style-jece.css">
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <!-- Material Kit CSS -->
+    <link href="css/material-kit.css" rel="stylesheet" />
 
 </head>
 <body>

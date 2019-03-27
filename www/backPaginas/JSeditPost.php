@@ -13,14 +13,23 @@
 		}
 	}
 
-	function salvarMetoArea() {
-		document.getElementById("metoFinal").value = document.getElementById("metodol").value
-		document.getElementById("areaFinal").value = document.getElementById("areass").value
-		if (document.getElementById("metodol").value!=0 && document.getElementById("areass").value!=0) {
-			document.getElementById("metoAreaSpan").innerHTML = document.getElementById("metodolNome").value+" - "+document.getElementById("areassNome").value;
+
+	function salvarMeto() {
+		document.getElementById("metoFinal").value = document.getElementById("metodol").value;
+		if (document.getElementById("metodol").value!=0) {
+			document.getElementById("metoSpan").innerHTML = document.getElementById("metodolNome").value;
 		}
 		openMetoModal()
 	}
+
+	function salvarArea() {
+		document.getElementById("areaFinal").value = document.getElementById("areass").value
+		if (document.getElementById("areass").value!=0) {
+			document.getElementById("areaSpan").innerHTML = document.getElementById("areassNome").value;
+		}
+		openAreaModal()
+	}
+
 
     function submitForm(){
     	if (document.getElementById('metoFinal').value!=0 && document.getElementById('areaFinal').value!=0) {

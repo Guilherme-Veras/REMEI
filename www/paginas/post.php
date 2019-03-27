@@ -1,90 +1,76 @@
-<section class="buscaSec" id="buscaSec">
-	<div class="root">
-		<div class="infos">
-			<p><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $dados['autorId']; ?>"> <?php echo $dados['autor']; ?></a></p>
-			<p><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($dados['data']),"d/m/Y"); ?></p>
-			<p><img src="imgs/icons/tag-white.svg"> <?php echo $dados['metodologia']." - ".$dados['area']; ?></p>
-		</div>
-	</div>
-</section>
-<section class="descerBack">
-	<div class="root">
-		<h3 class="tilteSec"><?php echo $dados['titulo']; ?></h3>
-		<div class="sobre">			
-			<p><?php echo $dados['resumo']; ?></p>
-			<p><?php echo $dados['descricao']; ?></p>
-		</div>
-		<div class="media">
-			<?php
-				for ($i=0; $i<sizeof($videos); $i++) { 
-					?>
-						<video width="320" height="240" controls>
-							<source src="imgs/post/<?php echo ($post.'/'.$videos[$i]); ?>" type="video/mp4">
-						Your browser does not support the video.
-						</video>
-						<label><?php echo substr($videos[$i], 0, -4); ?></label>
-					<?php
-				}
-				for ($i=0; $i<sizeof($fotos); $i++) { 
-					?>
-						<img src="imgs/post/<?php echo ($post.'/'.$fotos[$i]); ?>">
-						<label><?php echo substr($fotos[$i], 0, -4); ?></label>
-					<?php
-				}
-			?>
-			
-		</div>
-	</div>
-	<div class="root rancom">
-		<div class="ranking">
-			<div class="rank">
-				<h4>Avalie esse post</h4>
-				<div>
-					<?php estrelas($dados['ranking'], $user, $post, $rankAtual); ?>
-				</div>
-			</div>
-			<div class="comentarios">
-				<h3 class="tilteSec">Comentários</h3>
-				<div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<?php
-/*
-<section>
-	<div class="root">
-		<div>
-			<div class="postImg">
-				<img src="imgs/post/0.jpg">
-			</div>
-			<div class="postInfos">
-	 			<div><img src="imgs/icons/person-white.svg"><a href="perfil?user=<?php echo $dados['autorId']; ?>"> <?php echo $dados['autor']; ?></a></div>
-	 			<div><img src="imgs/icons/calendar-white.svg"> <?php echo date_format(date_create($dados['data']),"d/m/Y"); ?></div>
-	 			<div><img src="imgs/icons/tag-white.svg"> <?php echo $dados['metodologia']." ".$dados['area']; ?></div>
-			</div>
-			<div class="postTexts">
-				<h3><?php echo $dados['titulo']; ?></h3>
-				<p class="resumo"><?php echo $dados['resumo']; ?></p>
-				<p class="descricao"><?php echo $dados['descricao']; ?></p>
-			</div>
-		</div>
-		<div class="ranking">
-			<div class="rank">
-				<h4>Avalie esse post</h4>
-				<div>
-					<?php estrelas($dados['ranking'], $user, $post, $rankAtual); ?>
-				</div>
-			</div>
-			<div class="comentarios">
-				<h3>Comentários</h3>
-				<div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-</section>*/?>
+    <!-- Capa -->
+   <div class="page-header header-filter" data-parallax="true" style="background-image: url('imgs/capa/bg_padrao.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 ml-auto mr-auto ">
+                    <div class="brand text-center capa">
+                        <h1><?php echo $dados['titulo']; ?></h1>
+                        <!-- <h3 class="title text-center">Nome do(a) autor(a)</h3> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="main main-raised">
+        <!-- area-buscar  -->
+        <div class="section section-TextoPost">
+            <div class="container">
+                <!-- <h2 class="title">Buscar</h2> -->
+                <div class="row">
+                    <div class="col-3">
+                        <p class="mt-1">
+                            <a href="perfil?user=<?php echo $dados['autor_id']; ?>"">
+                                <p class="img m-1">
+                                    <img src="imgs/perfil/<?php echo $dados['autor_id']; ?>.jpg" alt="Giani Ito" class="rounded-circle img-fluid mx-auto">
+                                </p>
+                                    <?php echo $dados['autor']; ?>
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-9">
+                        <div class="row mb-2 d-flex justify-content-end">
+                            <span class="">Postado em <?php echo date_format(date_create($dados['data']),"d/m/Y"); ?></span>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <?php
+                                if ($dados['autor_id']==$user) {
+                                    ?>
+                                        <a href="editPost?i=<?php echo $dados["pos_id"]; ?>"><i class="fas fa-pencil-alt mr-3"></i></a>
+                                        <i class="fas fa-trash-alt" onclick="delPost(<?php echo $dados["pos_id"]; ?>)"></i>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center mt-4">
+                    <div class="col-6"><p> <span class="negrito">Metodologia: </span><?php echo $dados['metodologia']; ?></p></div>
+                    <div class="col-6"><p> <span class="negrito">Área: </span><?php echo $dados['area']; ?></p></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            <?php echo $dados['resumo']; ?>
+                        </p>
+                        <p>
+                            <?php echo $dados['descricao']; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <hr> -->
+        <!-- area-EmAlta  -->
+        <!--div id="area-EmAlta" class="section section-Comentarios">
+            <div class="container">
+                <h2 class="title">Comentários</h2>
+                <div class="row ">
+
+                </div>
+            </div>
+        </div-->
+    </div>

@@ -6,7 +6,7 @@ if (!isset($_GET['post'])) {
 
 $post = $_GET['post'];
 $result = $conn->query("
-SELECT pos_titulo as titulo,pos_resumo as resumo,pos_descricao as descricao,pos_data as data,usu_nome as autor,pos_autor as autorId,met_nome as metodologia,are_nome as area,(select AVG(posran_ranking) as rank from posts_ranking where posran_id_pos=pos_id) as ranking
+SELECT pos_id, pos_titulo as titulo,pos_resumo as resumo,pos_descricao as descricao,pos_data as data,usu_nome as autor,usu_id as autor_id,pos_autor as autorId,met_nome as metodologia,are_nome as area,(select AVG(posran_ranking) as rank from posts_ranking where posran_id_pos=pos_id) as ranking
 from posts 
 join users on pos_autor=usu_id 
 join areas on pos_area=are_id 
