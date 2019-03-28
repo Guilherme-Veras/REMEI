@@ -19,7 +19,7 @@ if (isset($_POST['email'])) {
 			echo getcwd();
 			chdir("imgs/perfil");
 			echo getcwd();
-			if (!copy("imgs/perfil/0.jpg", "imgs/perfil/".$id.".jpg")) {
+			if (!copy("0.jpg", $id.".jpg")) {
 			    echo -2;
 			}else{
 				echo 1;
