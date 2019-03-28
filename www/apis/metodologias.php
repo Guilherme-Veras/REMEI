@@ -1,6 +1,6 @@
 <?php
 
-$texto = $_POST['entrada'];
+$texto = $_GET['entrada'];
 
 $result = $conn->query("SELECT met_id, met_nome from metodologias where met_nome like '%$texto%'");
 $res = array();
