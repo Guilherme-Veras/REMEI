@@ -145,10 +145,10 @@ var notifications = [
 function verificarNovaSenha(){
     if(($('#password').val().length <= 5) || ($('#confirmepassword').val().length <= 5)) {
         msg=" É preciso que a senha tenha no minimo 6 caracteres!";
-        showMessage(msg, 'error');
+        alert(msg);
     }else if($('#password').val() != $('#confirmepassword').val()){
-        msg=" As senhas não se conhecidem!";
-        showMessage(msg, 'attention');
+        alert(" As senhas não se conhecidem!");
+        
     }else{
         msg="Senha modificada com sucesso!";
         document.getElementById('formao').submit();
