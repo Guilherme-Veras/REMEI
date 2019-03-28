@@ -31,7 +31,9 @@
         xhr.open('POST', "api/logout");
         var formData = new FormData();
         xhr.send(formData);
-        reload();
+        setTimeout(function(){
+	        reload();
+		}, 1000);
 	}
 
 	function blockIlegalCharacter(t) {
