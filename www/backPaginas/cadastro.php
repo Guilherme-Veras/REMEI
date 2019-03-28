@@ -16,12 +16,13 @@ if (isset($_POST['email'])) {
 			$id = $conn->query("SELECT usu_id from users where usu_email='$email'")->fetch(PDO::FETCH_ASSOC)['usu_id'];
 			$_SESSION['user'] = $id;
 			$_SESSION['userNome'] = $nome;
+			echo "id:".$id;
 			if (!copy("imgs/perfil/0.jpg", "imgs/perfil/".$id.".jpg")) {
-			    echo -1;
+			    echo -2;
 			}else{
 				echo 1;
 			}
-			inicio();
+			//inicio();
 		}else{
 			echo -1;
 		}
