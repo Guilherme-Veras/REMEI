@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $texto = $_GET['entrada'];
 print($texto);
 $result = $conn->query("SELECT met_id, met_nome from metodologias where met_nome like '%$texto%'");
