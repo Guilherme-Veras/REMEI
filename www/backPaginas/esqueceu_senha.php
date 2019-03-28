@@ -2,13 +2,13 @@
 
 if (isset($_POST['email'])) {
 
+		$email = $_POST['email'];
+
 
 
 	$result = $conn->query("SELECT * from users where usu_email = '$email'");
 	if($result->rowCount() > 0){
 		$dado = $result->fetch(PDO::FETCH_ASSOC)['usu_senha'];
-
-		$email = $_POST['email'];
 		$text = "Abre esse link para gerar uma nova senha: www.remei.sh.utfpr.edu.br/nova_senha?i=".$dado;
 
 		if ($mailSent = smtpmailer($email, $mailRemei, 'REMEI', 'Esqueci minha senha', $text)) {
