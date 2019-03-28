@@ -17,11 +17,14 @@ if (isset($_POST['email'])) {
 			$_SESSION['user'] = $id;
 			$_SESSION['userNome'] = $nome;
 			echo getcwd();
+			chdir("imgs/perfil");
+			echo getcwd();
 			if (!copy("imgs/perfil/0.jpg", "imgs/perfil/".$id.".jpg")) {
 			    echo -2;
 			}else{
 				echo 1;
 			}
+			chdir("../..");
 			//inicio();
 		}else{
 			echo -1;
