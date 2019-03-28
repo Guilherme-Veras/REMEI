@@ -16,9 +16,9 @@ if (isset($_POST['email'])) {
 			$id = $conn->query("SELECT usu_id from users where usu_email='$email'")->fetch(PDO::FETCH_ASSOC)['usu_id'];
 			$_SESSION['user'] = $id;
 			$_SESSION['userNome'] = $nome;
-			echo getcwd();
+			//echo getcwd();
 			chdir("imgs/perfil");
-			echo getcwd();
+			var_dump(scandir());
 			if (!copy("0.jpg", $id.".jpg")) {
 			    echo -2;
 			}else{
