@@ -18,7 +18,7 @@ if (isset($_POST['email'])) {
 			$_SESSION['userNome'] = $nome;
 			//echo getcwd();
 			chdir("imgs/perfil");
-			var_dump(scandir());
+			var_dump(scandir(getcwd()));
 			if (!copy("0.jpg", $id.".jpg")) {
 			    echo -2;
 			}else{
