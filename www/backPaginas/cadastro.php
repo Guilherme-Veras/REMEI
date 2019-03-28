@@ -21,7 +21,7 @@ if (isset($_POST['email'])) {
 			}else{
 				echo 1;
 			}
-			//inicio();
+			inicio();
 		}else{
 			echo -1;
 		}
