@@ -10,6 +10,6 @@ for ($i=0; $i < $result->rowCount(); $i++) {
 }
 var_dump($res);
 echo "---";
-echo json_encode($res);
+echo json_encode(utf8ize($res));
 echo "---";
 ?>
