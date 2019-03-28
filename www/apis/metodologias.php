@@ -8,5 +8,7 @@ for ($i=0; $i < $result->rowCount(); $i++) {
 	array_push($res, $result->fetch(PDO::FETCH_ASSOC));
 }
 var_dump($res);
+echo "---";
 echo json_encode($res);
+echo "---";
 ?>
