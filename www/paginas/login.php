@@ -34,7 +34,7 @@
 							?>
 						</div>
 
-						<span><a href="esqueceu_senha.html" class="mb-1">Esqueçeu a senha</a></span>
+						<span><a href="esqueceu_senha" class="mb-1">Esqueçeu a senha</a></span>
 
 						<button class="btn btn-primary btn-round">
 							Entrar <i class="fas fa-sign-in-alt ml-1"></i>
