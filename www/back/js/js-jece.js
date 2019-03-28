@@ -151,7 +151,7 @@ function verificarNovaSenha(){
         showMessage(msg, 'attention');
     }else{
         msg="Senha modificada com sucesso!";
-        showMessage(msg, 'success');
+        document.getElementById('formao').submit();
     }
 }
 

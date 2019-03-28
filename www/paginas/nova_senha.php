@@ -8,7 +8,7 @@
                 	</div>
                 </div>
                 <div class="col-lg-6 login-campos novaSenha-campos">
-                	<form action="" method="post" accept-charset="utf-8">
+                	<form action="" method="post" id="formao" accept-charset="utf-8">
             			<h3>Criar Nova Senha</h3>
 
 						<div class="form-group bmd-form-group">
