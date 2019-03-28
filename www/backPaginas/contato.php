@@ -2,14 +2,16 @@
 
 if (isset($_POST['email'])) {
 	$email = $_POST['email'];
-	$text = $_POST['text'];
+	$text = $email.": ".$_POST['text'];
 
-	if ($mailSent = smtpmailer($email, $mailRemei, 'REMEI', 'Contato', $text)) {
+	if ($mailSent = smtpmailer($mailRemei, $mailRemei, 'REMEI', 'Contato', $text)) {
+		echo "<script>alert('Menssagem enviada com sucesso')</script>"
 
 		//Header("location:http://www.dominio.com.br/obrigado.html"); // Redireciona para uma página de obrigado.
-		print("deu bom");
+		//print("deu bom");
 	}else{
-		print($mailSent);
+		echo "<script>alert('Erro ao enviar a menssagem, tente novamente mais tarde')</script>"
+		//print($mailSent);
 	}
 }
 

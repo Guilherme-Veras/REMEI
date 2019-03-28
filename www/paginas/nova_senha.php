@@ -8,12 +8,12 @@
                 	</div>
                 </div>
                 <div class="col-lg-6 login-campos novaSenha-campos">
-                	<form action="" method="get" accept-charset="utf-8">
+                	<form action="" method="post" accept-charset="utf-8">
             			<h3>Criar Nova Senha</h3>
 
 						<div class="form-group bmd-form-group">
 							<label for="password" class="bmd-label-floating">NOVA SENHA</label>
-							<input type="password" class="form-control" id="password" required>
+							<input type="password" name="senha" class="form-control" id="password" required>
 							<span class="bmd-help">Digite uma nova senha.</span>
 						</div>
 

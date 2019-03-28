@@ -8,12 +8,12 @@
                 	</div>
                 </div>
                 <div class="col-lg-6 login-campos recuperar-campos">
-                	<form action="" method="get" accept-charset="utf-8">
+                	<form action="" method="post" accept-charset="utf-8">
             			<h3>Recuperar Senha</h3>
 
 						<div class="form-group bmd-form-group">
 							<label for="email" class="bmd-label-floating">EMAIL</label>
-							<input type="email" class="form-control" id="email" required>
+							<input type="email" class="form-control" name="email" id="email" required>
 							<span class="bmd-help">Digite seu email cadastrado.</span>
 						</div>
 
