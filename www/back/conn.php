@@ -4,12 +4,12 @@ $dbhost = "remei"; //databse
 $userhost = "root"; //usuario
 $passwordhost = "1_RUetmfepIR_8"; //senha
 
-/*
+
 $iphost = "localhost"; //ip/host
 $dbhost = "remei"; //databse
 $userhost = "root"; //usuario
 $passwordhost = ""; //senha
-*/
+
         
 try {
 	$conn = new PDO("mysql:host=".$iphost.";dbname=".$dbhost."", $userhost, $passwordhost); 
