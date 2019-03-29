@@ -164,11 +164,8 @@ function verificarCadastro(){
 
     if (($('#nome').val().length <= 0) ||
         ($('#email').val().length <= 5) ||
-        ($('#confirmeemail').val().length <= 5) ||
-        ($('#password').val().length <= 5) ||
-        ($('#confirmepassword').val().length <= 5)){
+        ($('#confirmeemail').val().length <= 5)){
         msg=" Não pode ter campos em branco!";
-       // showMessage(msg, 'error');
     }else if($('#email').val() != $('#confirmeemail').val()){
         msg=" Os email não se conhecidem!";
         //showMessage(msg, 'attention');
